@@ -30,6 +30,13 @@ export const PROJECTS: Project[] = [
     tech: ["Android Studio", "Kotlin", "Jetpack Compose"],
     github: "https://github.com/Vinay-ops/AppStack_Pay-Sahayak",
     live: ""
+  },
+  {
+    name: "DayLedger",
+    description:
+      "Daily habit tracker Android app built with Jetpack Compose and a clean MVVM architecture.",
+    tech: ["Android Studio", "Kotlin", "Jetpack Compose", "Room", "Coroutines"],
+    github: "https://github.com/Vinay-ops/DayLedger",
+    live: ""
   }
 ];
-
