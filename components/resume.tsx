@@ -113,16 +113,45 @@ const downloadResume = () => {
 
 const printResume = () => {
   const resumeHTML = generateResumeHTML();
-  const printWindow = window.open("", "_blank");
-  if (printWindow) {
-    printWindow.document.write(resumeHTML);
-    printWindow.document.close();
-    printWindow.onload = () => {
-      printWindow.focus();
+
+  // Use an invisible iframe with `srcdoc` to avoid opening an about:blank tab
+  // and to keep the printed document tied to the current origin.
+  const iframe = document.createElement("iframe");
+  iframe.style.position = "fixed";
+  iframe.style.right = "0";
+  iframe.style.bottom = "0";
+  iframe.style.width = "0";
+  iframe.style.height = "0";
+  iframe.style.border = "0";
+  iframe.srcdoc = resumeHTML;
+  document.body.appendChild(iframe);
+
+  const win = iframe.contentWindow;
+  if (win) {
+    win.focus();
+    win.onload = () => {
       setTimeout(() => {
-        printWindow.print();
+        try {
+          win.print();
+        } finally {
+          // remove iframe after printing
+          document.body.removeChild(iframe);
+        }
       }, 250);
     };
+  } else {
+    // Fallback: open in new window (may show about:blank briefly)
+    const printWindow = window.open("", "_blank");
+    if (printWindow) {
+      printWindow.document.write(resumeHTML);
+      printWindow.document.close();
+      printWindow.onload = () => {
+        printWindow.focus();
+        setTimeout(() => {
+          printWindow.print();
+        }, 250);
+      };
+    }
   }
 };
 
