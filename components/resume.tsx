@@ -70,30 +70,25 @@ Other: Native mobile app development (Dart / Flutter), MVVM Architecture, REST A
 PROJECTS
 ================================================================================
 
-DayLedger - Daily Habit Tracker
-• Built modern habit tracking app with Jetpack Compose and Material 3
-• Implemented streak tracking and calendar-based completion history
-• Tech: Kotlin, Room, Coroutines, MVVM
+Password Manager
+• A local-first Android app providing PIN-based access to securely store and manage credentials
+• Add, view, copy, and delete saved passwords with on-device storage and privacy-first design
+• Tech: Java, Android, SharedPreferences / Local DB
 
 Pay Sahayak - UPI Issue Resolution
 • Created AI-powered multilingual app for merchant complaint management
 • Integrated Gemini AI for automated guidance and complaint drafting
 • Tech: Kotlin, Jetpack Compose, Firebase, Gemini AI
 
-AI Chat Pro
-• Developed lightning-fast AI chat with Groq's inference API
-• Achieved sub-second response times with multiple AI models
-• Tech: Python, CustomTkinter, Groq API
-
 Space Shooter 3D & Red Light Green Light
 • Created immersive 3D games with Unity engine
 • Implemented AI opponents and mobile-optimized controls
 • Tech: Unity, C#, 3D Graphics
 
-Password Manager
-• Built secure credential storage application for Android
-• Focused on local encryption and user-friendly interface
-• Tech: Java, Android Studio, SQLite
+DayLedger - Daily Habit Tracker
+• Built modern habit tracking app with Jetpack Compose and Material 3
+• Implemented streak tracking and calendar-based completion history
+• Tech: Kotlin, Room, Coroutines, MVVM
 
 ================================================================================
 

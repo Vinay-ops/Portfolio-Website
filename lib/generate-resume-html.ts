@@ -253,11 +253,11 @@ export const generateResumeHTML = () => {
     <h2 class="section-title">Key Projects</h2>
     
     <div class="entry">
-      <div class="entry-title">DayLedger - Daily Habit Tracker</div>
+      <div class="entry-title">Password Manager</div>
       <ul class="entry-list">
-        <li>Built modern habit tracking app with Jetpack Compose and Material 3 design</li>
-        <li>Implemented streak tracking, calendar-based completion history, and MVVM architecture</li>
-        <li>Technologies: Kotlin, Room Database, Coroutines, StateFlow</li>
+        <li>Local-first Android password manager with PIN-based access and on-device storage</li>
+        <li>Add, view, copy, and delete saved credentials with a minimal, privacy-focused UI</li>
+        <li>Technologies: Java, Android, SharedPreferences / Local DB</li>
       </ul>
     </div>
 
@@ -271,20 +271,20 @@ export const generateResumeHTML = () => {
     </div>
 
     <div class="entry">
-      <div class="entry-title">AI Chat Pro - Lightning-Fast AI Assistant</div>
-      <ul class="entry-list">
-        <li>Developed desktop AI chat application with sub-second response times using Groq API</li>
-        <li>Supports multiple models (Llama 3.1, Mixtral) with conversation export and custom themes</li>
-        <li>Technologies: Python, CustomTkinter, Groq API, OpenAI SDK</li>
-      </ul>
-    </div>
-
-    <div class="entry">
       <div class="entry-title">Unity Game Development - Space Shooter 3D & Red Light Green Light</div>
       <ul class="entry-list">
         <li>Created immersive 3D games with Unity engine featuring AI opponents</li>
         <li>Implemented mobile-optimized controls, physics, and game mechanics</li>
         <li>Technologies: Unity, C#, 3D Graphics, ShaderLab</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-title">DayLedger - Daily Habit Tracker</div>
+      <ul class="entry-list">
+        <li>Built modern habit tracking app with Jetpack Compose and Material 3 design</li>
+        <li>Implemented streak tracking, calendar-based completion history, and MVVM architecture</li>
+        <li>Technologies: Kotlin, Room Database, Coroutines, StateFlow</li>
       </ul>
     </div>
   </div>
