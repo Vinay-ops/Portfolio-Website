@@ -168,7 +168,7 @@ export const generateResumeHTML = () => {
 <body>
   <div class="header">
     <h1>VINAY BHOGAL</h1>
-    <div class="title">Aspiring Android and Full Stack Developer</div>
+    <div class="title">Aspiring Android & Flutter Full-Stack Developer (native apps with Dart & Flutter)</div>
     <div class="contact">
       <span class="contact-item">📧 vbhogal5@gmail.com</span>
       <span class="contact-item">🔗 linkedin.com/in/vinay-bhogal-78a623319</span>
@@ -236,7 +236,7 @@ export const generateResumeHTML = () => {
       </div>
       <div class="skill-category">
         <div class="skill-category-title">Frameworks & Libraries</div>
-        <div class="skill-tags">Flutter, Jetpack Compose, Material 3, Unity</div>
+        <div class="skill-tags">Flutter (Dart), Jetpack Compose, Material 3, Unity</div>
       </div>
       <div class="skill-category">
         <div class="skill-category-title">Databases</div>

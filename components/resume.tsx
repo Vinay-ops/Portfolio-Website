@@ -8,7 +8,7 @@ import { generateResumeHTML } from "@/lib/generate-resume-html";
 
 const generateResumeText = () => {
   let resume = `VINAY BHOGAL
-Aspiring Android and Full Stack Developer
+Aspiring Android & Flutter Full-Stack Developer (native apps with Dart & Flutter)
 
 Email: vbhogal5@gmail.com
 LinkedIn: linkedin.com/in/vinay-bhogal-78a623319
@@ -64,7 +64,7 @@ Programming Languages: Java, Kotlin, Python, Dart
 Frameworks: Flutter, Jetpack Compose, Material 3
 Databases: Firebase, MySQL, PostgreSQL, Room, SQLite
 Tools & Platforms: Git, Android Studio, VS Code, Unity
-Other: MVVM Architecture, REST APIs, Coroutines, AI Integration
+Other: Native mobile app development (Dart / Flutter), MVVM Architecture, REST APIs, Coroutines, AI Integration
 
 ================================================================================
 PROJECTS
