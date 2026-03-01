@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Section from "@/components/section";
 import SectionHeading from "@/components/section-heading";
 import { EDUCATION, EXPERIENCE } from "@/lib/resume";
