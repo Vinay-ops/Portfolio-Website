@@ -8,9 +8,9 @@ import { generateResumeHTML } from "@/lib/generate-resume-html";
 
 const generateResumeText = () => {
   let resume = `VINAY BHOGAL
-Android App Developer and Full Stack Developer
+Aspiring Android and Full Stack Developer
 
-Email: midhunnk2019@gmail.com
+Email: vbhogal5@gmail.com
 LinkedIn: linkedin.com/in/vinay-bhogal-78a623319
 GitHub: github.com/Vinay-ops
 Instagram: @vinaybhogal

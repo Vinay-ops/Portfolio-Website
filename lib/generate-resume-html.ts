@@ -168,9 +168,9 @@ export const generateResumeHTML = () => {
 <body>
   <div class="header">
     <h1>VINAY BHOGAL</h1>
-    <div class="title">Android App Developer & Full Stack Developer</div>
+    <div class="title">Aspiring Android and Full Stack Developer</div>
     <div class="contact">
-      <span class="contact-item">📧 midhunnk2019@gmail.com</span>
+      <span class="contact-item">📧 vbhogal5@gmail.com</span>
       <span class="contact-item">🔗 linkedin.com/in/vinay-bhogal-78a623319</span>
       <span class="contact-item">💻 github.com/Vinay-ops</span>
       <span class="contact-item">📸 @vinaybhogal</span>
