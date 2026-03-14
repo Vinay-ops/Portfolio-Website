@@ -42,4 +42,12 @@ export const PROJECTS: Project[] = [
     tech: ["Kotlin", "Jetpack Compose", "Room", "Material 3", "MVVM", "Coroutines"],
     github: "https://github.com/Vinay-ops/DayLedger"
   }
+  ,
+  {
+    name: "Best Buy Project",
+    description:
+      "An e‑commerce style web app demonstrating product listings, search, and cart interactions—implemented as a demo Best Buy clone.",
+    tech: ["React", "Next.js", "Tailwind CSS", "Node.js"],
+    github: "https://github.com/Vinay-ops/Best_Buy_Project"
+  }
 ];
