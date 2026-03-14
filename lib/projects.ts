@@ -46,8 +46,8 @@ export const PROJECTS: Project[] = [
   {
     name: "Best Buy Project",
     description:
-      "An e‑commerce style web app demonstrating product listings, search, and cart interactions—implemented as a demo Best Buy clone.",
-    tech: ["React", "Next.js", "Tailwind CSS", "Node.js"],
+      "A mobile e‑commerce demo app built with Flutter and Dart showcasing product listings, search, cart interactions, and mobile-friendly state management—implemented as a Best Buy clone for mobile.",
+    tech: ["Flutter", "Dart"],
     github: "https://github.com/Vinay-ops/Best_Buy_Project"
   }
 ];
