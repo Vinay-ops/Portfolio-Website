@@ -8,91 +8,77 @@ import { generateResumeHTML } from "@/lib/generate-resume-html";
 
 const generateResumeText = () => {
   let resume = `VINAY BHOGAL
-Aspiring Android & Flutter Full-Stack Developer (native apps with Dart & Flutter)
+Aspiring Android & Flutter Full-Stack Developer
 
+CONTACT
+--------------------------------------------------------------------------------
 Email: vbhogal5@gmail.com
 LinkedIn: linkedin.com/in/vinay-bhogal-78a623319
 GitHub: github.com/Vinay-ops
 Instagram: @vinaybhogal
 
-================================================================================
 EDUCATION
-================================================================================
-
+--------------------------------------------------------------------------------
 `;
 
   EDUCATION.forEach((edu) => {
-    resume += `${edu.degree}\n`;
+    resume += `${edu.degree.toUpperCase()}\n`;
     resume += `${edu.institution} | ${edu.location}\n`;
     resume += `${edu.duration}\n`;
     if (edu.description) {
       resume += `${edu.description}\n`;
     }
     if (edu.achievements && edu.achievements.length > 0) {
-      resume += `\nKey Highlights:\n`;
+      resume += `Key Highlights:\n`;
       edu.achievements.forEach((achievement) => {
-        resume += `• ${achievement}\n`;
+        resume += `  • ${achievement}\n`;
       });
     }
     resume += `\n`;
   });
 
   if (EXPERIENCE.length > 0) {
-    resume += `\n================================================================================
-WORK EXPERIENCE
-================================================================================
-
+    resume += `WORK EXPERIENCE
+--------------------------------------------------------------------------------
 `;
     EXPERIENCE.forEach((exp) => {
-      resume += `${exp.title}\n`;
+      resume += `${exp.title.toUpperCase()}\n`;
       resume += `${exp.company} | ${exp.location}\n`;
       resume += `${exp.duration}\n`;
-      resume += `${exp.description}\n\n`;
-      resume += `Key Achievements:\n`;
-      exp.achievements.forEach((achievement) => {
-        resume += `• ${achievement}\n`;
-      });
+      resume += `${exp.description}\n`;
+      if (exp.achievements && exp.achievements.length > 0) {
+        resume += `Key Achievements:\n`;
+        exp.achievements.forEach((achievement) => {
+          resume += `  • ${achievement}\n`;
+        });
+      }
       resume += `\n`;
     });
   }
 
-  resume += `\n================================================================================
-TECHNICAL SKILLS
-================================================================================
-
-Programming Languages: Java, Kotlin, Python, Dart
-Frameworks: Flutter, Jetpack Compose, Material 3
+  resume += `TECHNICAL SKILLS
+--------------------------------------------------------------------------------
+Programming Languages: Java, Kotlin, Python, Dart, C#
+Frameworks: Flutter, Jetpack Compose, Material 3, Unity
 Databases: Firebase, MySQL, PostgreSQL, Room, SQLite
-Tools & Platforms: Git, Android Studio, VS Code, Unity
-Other: Native mobile app development (Dart / Flutter), MVVM Architecture, REST APIs, Coroutines, AI Integration
+Tools & Platforms: Git, Android Studio, VS Code, AI Integration
 
-================================================================================
 PROJECTS
-================================================================================
-
-Password Manager
-• A local-first Android app providing PIN-based access to securely store and manage credentials
-• Add, view, copy, and delete saved passwords with on-device storage and privacy-first design
-• Tech: Java, Android, SharedPreferences / Local DB
-
-Pay Sahayak - UPI Issue Resolution
-• Created AI-powered multilingual app for merchant complaint management
-• Integrated Gemini AI for automated guidance and complaint drafting
+--------------------------------------------------------------------------------
+Pay Sahayak - AI-Powered UPI Issue Resolution
+• Created multilingual merchant complaint management app with Gemini AI
 • Tech: Kotlin, Jetpack Compose, Firebase, Gemini AI
 
-Space Shooter 3D & Red Light Green Light
-• Created immersive 3D games with Unity engine
-• Implemented AI opponents and mobile-optimized controls
-• Tech: Unity, C#, 3D Graphics
-
 DayLedger - Daily Habit Tracker
-• Built modern habit tracking app with Jetpack Compose and Material 3
-• Implemented streak tracking and calendar-based completion history
+• Built modern habit tracking app with Material 3 design
 • Tech: Kotlin, Room, Coroutines, MVVM
 
-================================================================================
+Password Manager
+• Local-first Android app for secure credential management
+• Tech: Java, Android, SQLite
 
-Generated from portfolio website
+--------------------------------------------------------------------------------
+Generated from Vinay Bhogal's Portfolio
 `;
 
   return resume;
@@ -111,11 +97,18 @@ const downloadResume = () => {
   URL.revokeObjectURL(url);
 };
 
+const previewResume = () => {
+  const resumeHTML = generateResumeHTML();
+  const previewWindow = window.open("", "_blank");
+  if (previewWindow) {
+    previewWindow.document.write(resumeHTML);
+    previewWindow.document.close();
+  }
+};
+
 const printResume = () => {
   const resumeHTML = generateResumeHTML();
 
-  // Use an invisible iframe with `srcdoc` to avoid opening an about:blank tab
-  // and to keep the printed document tied to the current origin.
   const iframe = document.createElement("iframe");
   iframe.style.position = "fixed";
   iframe.style.right = "0";
@@ -134,13 +127,11 @@ const printResume = () => {
         try {
           win.print();
         } finally {
-          // remove iframe after printing
           document.body.removeChild(iframe);
         }
       }, 250);
     };
   } else {
-    // Fallback: open in new window (may show about:blank briefly)
     const printWindow = window.open("", "_blank");
     if (printWindow) {
       printWindow.document.write(resumeHTML);
@@ -168,29 +159,10 @@ export default function Resume() {
           <div className="flex flex-wrap gap-3">
             <button
               onClick={printResume}
-              className="group flex items-center gap-2 rounded-xl border border-accent-blue/70 bg-accent-blue/10 px-5 py-2.5 text-sm font-medium text-accent-blue transition-all hover:bg-accent-blue hover:text-white hover:shadow-glow"
+              className="group flex items-center gap-2 rounded-xl border border-accent-blue/50 bg-accent-blue/10 px-5 py-2.5 text-sm font-semibold text-accent-blue transition-all hover:bg-accent-blue hover:text-white hover:shadow-[0_0_20px_rgba(37,99,235,0.3)]"
             >
               <svg
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
-                />
-              </svg>
-              Print PDF
-            </button>
-            <button
-              onClick={downloadResume}
-              className="group flex items-center gap-2 rounded-xl border border-slate-700/80 bg-slate-900/60 px-5 py-2.5 text-sm font-medium text-slate-100 transition-all hover:border-accent-blue/70 hover:bg-slate-800/80 hover:shadow-glow"
-            >
-              <svg
-                className="h-5 w-5 transition-transform group-hover:translate-y-0.5"
+                className="h-5 w-5 transition-transform group-hover:scale-110"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -202,7 +174,51 @@ export default function Resume() {
                   d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                 />
               </svg>
-              Download TXT
+              Download PDF
+            </button>
+            <button
+              onClick={previewResume}
+              className="group flex items-center gap-2 rounded-xl border border-slate-700/80 bg-slate-900/60 px-5 py-2.5 text-sm font-medium text-slate-300 transition-all hover:border-slate-500 hover:bg-slate-800/80"
+            >
+              <svg
+                className="h-5 w-5 transition-transform group-hover:rotate-12"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                />
+              </svg>
+              Preview
+            </button>
+            <button
+              onClick={downloadResume}
+              className="group flex items-center gap-2 rounded-xl border border-slate-700/80 bg-slate-900/60 px-5 py-2.5 text-sm font-medium text-slate-400 transition-all hover:border-slate-600 hover:text-slate-200"
+            >
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+              TXT
             </button>
           </div>
         </div>
