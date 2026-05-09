@@ -1,5 +1,7 @@
 import { EDUCATION, EXPERIENCE } from "./resume";
 import { PROJECTS } from "./projects";
+
+export const generateResumeHTML = () => {
   const escape = (s: string) => String(s).replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
   const strongFirst = (text: string) => {
