@@ -1,12 +1,5 @@
 import { EDUCATION, EXPERIENCE } from "./resume";
 import { PROJECTS } from "./projects";
-
-export const generateResumeHTML = () => {
-  return `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-export const generateResumeHTML = () => {
   const escape = (s: string) => String(s).replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
   const strongFirst = (text: string) => {
