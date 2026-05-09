@@ -156,10 +156,11 @@ export default function Resume() {
             title="Experience & Education"
             subtitle="My professional journey and academic foundation in software engineering."
           />
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 items-center">
             <button
               onClick={printResume}
-              className="group flex items-center gap-2 rounded-xl border border-accent-blue/50 bg-accent-blue/10 px-5 py-2.5 text-sm font-semibold text-accent-blue transition-all hover:bg-accent-blue hover:text-white hover:shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+              title="Print resume"
+              className="group flex items-center gap-2 rounded-lg border border-slate-700/60 bg-slate-800/40 px-4 py-2 text-sm font-semibold text-slate-100 transition-all hover:bg-slate-800 hover:text-white"
             >
               <svg
                 className="h-5 w-5 transition-transform group-hover:scale-110"
@@ -174,11 +175,11 @@ export default function Resume() {
                   d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                 />
               </svg>
-              Download PDF
+              Print
             </button>
             <button
               onClick={previewResume}
-              className="group flex items-center gap-2 rounded-xl border border-slate-700/80 bg-slate-900/60 px-5 py-2.5 text-sm font-medium text-slate-300 transition-all hover:border-slate-500 hover:bg-slate-800/80"
+              className="group flex items-center gap-2 rounded-lg border border-slate-700/60 bg-slate-800/40 px-4 py-2 text-sm font-medium text-slate-200 transition-all hover:border-slate-500 hover:bg-slate-800"
             >
               <svg
                 className="h-5 w-5 transition-transform group-hover:rotate-12"
@@ -203,7 +204,7 @@ export default function Resume() {
             </button>
             <button
               onClick={downloadResume}
-              className="group flex items-center gap-2 rounded-xl border border-slate-700/80 bg-slate-900/60 px-5 py-2.5 text-sm font-medium text-slate-400 transition-all hover:border-slate-600 hover:text-slate-200"
+              className="group flex items-center gap-2 rounded-lg border border-slate-700/60 bg-slate-800/40 px-4 py-2 text-sm font-medium text-slate-200 transition-all hover:border-slate-600 hover:bg-slate-800"
             >
               <svg
                 className="h-4 w-4"
