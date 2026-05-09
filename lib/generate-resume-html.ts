@@ -70,6 +70,9 @@ export const generateResumeHTML = () => {
 </head>
 <body>
   <div class="container">
+    <div style="text-align:center;margin-bottom:10px">
+      <img src="/image/VinayProfilePic.jpg" alt="Vinay Bhogal" style="width:110px;height:110px;border-radius:12px;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 18px rgba(2,6,23,0.06)" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22110%22 height=%22110%22 viewBox=%220 0 110 110%22><rect width=%22110%25%22 height=%22110%25%22 fill=%22%23f1f5f9%22/><text x=%2255%22 y=%2258%22 font-size=%2236%22 font-family=%22Arial%22 fill=%22%23626b6f%22 text-anchor=%22middle%22 alignment-baseline=%22middle%22>VB</text></svg>'" />
+    </div>
     <h1 class="name">VINAY BHOGAL</h1>
     <div class="tagline">Aspiring Android & Flutter Full-Stack Developer</div>
     <div class="contact">vbhogal5@gmail.com &nbsp; | &nbsp; linkedin.com/in/vinay-bhogal-78a623319 &nbsp; | &nbsp; github.com/Vinay-ops</div>
