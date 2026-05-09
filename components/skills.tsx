@@ -8,20 +8,20 @@ type SkillCategory = {
 
 const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    label: "Programming",
-    items: ["Java", "Kotlin", "Python", "Dart"]
+    label: "Languages",
+    items: ["Java", "Kotlin", "Python", "Dart", "C#"]
   },
   {
     label: "Frameworks",
-    items: ["Flutter"]
+    items: ["Flutter", "Jetpack Compose", "Material 3", "Unity"]
   },
   {
-    label: "Databases",
-    items: ["Firebase", "MySQL", "PostgreSQL"]
+    label: "Databases & Cloud",
+    items: ["Firebase", "SQLite", "Room", "PostgreSQL", "MySQL"]
   },
   {
-    label: "Tools",
-    items: ["Git", "VS Code", "Android Studio"]
+    label: "Tools & Core",
+    items: ["Git", "Android Studio", "VS Code", "AI APIs", "MVVM"]
   }
 ];
 
@@ -30,24 +30,24 @@ export default function Skills() {
     <Section id="skills">
       <div className="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] md:items-start">
         <SectionHeading
-          eyebrow="Skills"
-          title="A Stack Built For Shipping"
-          subtitle="Mobile-first engineering with a backend mindset. Focused on robust delivery, observability, and experiences that feel tightly tuned."
+          eyebrow="Expertise"
+          title="Modern Stack, Native Performance"
+          subtitle="Specializing in Android and Flutter development with a deep focus on clean architecture, AI integration, and robust data persistence."
         />
         <div className="grid w-full gap-5 sm:grid-cols-2">
           {SKILL_CATEGORIES.map((category) => (
             <article
               key={category.label}
-              className="group rounded-2xl border border-slate-800/70 bg-slate-950/40 p-5 shadow-[0_0_0_1px_rgba(15,23,42,0.9)] transition-transform duration-200 hover:-translate-y-1 hover:border-accent-blue/70 hover:shadow-glow"
+              className="group rounded-2xl border border-slate-800/50 bg-slate-950/40 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-blue/40 hover:bg-slate-900/40 hover:shadow-[0_0_20px_rgba(37,99,235,0.1)]"
             >
-              <h3 className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-400">
+              <h3 className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500 transition-colors group-hover:text-accent-blue/80">
                 {category.label}
               </h3>
-              <ul className="mt-4 flex flex-wrap gap-2">
+              <ul className="mt-5 flex flex-wrap gap-2">
                 {category.items.map((item) => (
                   <li
                     key={item}
-                    className="rounded-full border border-slate-700/80 bg-slate-900/60 px-3 py-1 text-xs font-medium text-slate-100 transition-colors group-hover:border-accent-blue/80"
+                    className="rounded-lg border border-slate-700/50 bg-slate-900/30 px-3 py-1.5 text-[11px] font-medium text-slate-300 transition-all duration-300 group-hover:border-slate-600 group-hover:text-slate-100"
                   >
                     {item}
                   </li>

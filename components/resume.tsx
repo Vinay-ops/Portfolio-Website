@@ -153,8 +153,8 @@ export default function Resume() {
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <SectionHeading
             eyebrow="Resume"
-            title="Education"
-            subtitle="Academic journey and continuous learning in software development and technology."
+            title="Experience & Education"
+            subtitle="My professional journey and academic foundation in software engineering."
           />
           <div className="flex flex-wrap gap-3">
             <button
@@ -233,11 +233,11 @@ export default function Resume() {
               {EXPERIENCE.map((exp, index) => (
               <article
                 key={index}
-                className="group relative border-l-2 border-slate-800/70 pl-8 pb-8 last:pb-0 transition-colors hover:border-accent-blue/70"
+                className="group relative border-l-2 border-slate-800/70 pl-8 pb-10 last:pb-0 transition-colors hover:border-accent-blue/50"
               >
                 {/* Timeline Dot */}
-                <div className="absolute -left-2 top-0 h-4 w-4 rounded-full border-2 border-slate-800/70 bg-slate-950 transition-colors group-hover:border-accent-blue group-hover:bg-accent-blue/20">
-                  <div className="absolute inset-0 m-auto h-2 w-2 rounded-full bg-accent-blue opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full border-2 border-slate-800/70 bg-slate-950 transition-all duration-300 group-hover:scale-125 group-hover:border-accent-blue group-hover:bg-accent-blue/20">
+                  <div className="absolute inset-0 m-auto h-1.5 w-1.5 rounded-full bg-accent-blue opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
 
                 <div className="space-y-3">
@@ -288,11 +288,11 @@ export default function Resume() {
             {EDUCATION.map((edu, index) => (
               <article
                 key={index}
-                className="group relative border-l-2 border-slate-800/70 pl-8 pb-8 last:pb-0 transition-colors hover:border-accent-blue/70"
+                className="group relative border-l-2 border-slate-800/70 pl-8 pb-10 last:pb-0 transition-colors hover:border-accent-blue/50"
               >
                 {/* Timeline Dot */}
-                <div className="absolute -left-2 top-0 h-4 w-4 rounded-full border-2 border-slate-800/70 bg-slate-950 transition-colors group-hover:border-accent-blue group-hover:bg-accent-blue/20">
-                  <div className="absolute inset-0 m-auto h-2 w-2 rounded-full bg-accent-blue opacity-0 transition-opacity group-hover:opacity-100" />
+                <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full border-2 border-slate-800/70 bg-slate-950 transition-all duration-300 group-hover:scale-125 group-hover:border-accent-blue group-hover:bg-accent-blue/20">
+                  <div className="absolute inset-0 m-auto h-1.5 w-1.5 rounded-full bg-accent-blue opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
 
                 <div className="space-y-3">
