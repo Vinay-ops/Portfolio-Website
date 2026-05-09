@@ -104,7 +104,7 @@ export const generateResumeHTML = () => {
       <div class="page">
         <aside class="sidebar">
           <div class="profile">
-            <img src="/image/VinayProfilePic.jpg" alt="Vinay Bhogal">
+            <img src="/image/VinayProfilePic.jpg" alt="Vinay Bhogal" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22110%22 height=%22110%22 viewBox=%220 0 110 110%22><rect width=%22110%25%22 height=%22110%25%22 fill=%22%23f1f5f9%22/><text x=%2255%22 y=%2258%22 font-size=%2236%22 font-family=%22Arial%22 fill=%22%23626b6f%22 text-anchor=%22middle%22 alignment-baseline=%22middle%22>VB</text></svg>'" />
             <div class="name">VINAY BHOGAL</div>
             <div class="role">Aspiring Android & Flutter Full-Stack Developer</div>
           </div>
