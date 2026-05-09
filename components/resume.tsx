@@ -147,24 +147,20 @@ const printResume = () => {
 };
 
 export default function Resume() {
-  const experienceCount = EXPERIENCE.length;
-  const educationCount = EDUCATION.length;
-  const latestEducation = EDUCATION[0];
-
   return (
     <Section id="resume">
       <div className="grid gap-10">
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <SectionHeading
             eyebrow="Resume"
             title="Experience & Education"
-            subtitle="A compact snapshot of the work, study, and technical direction behind my portfolio."
+            subtitle="My professional journey and academic foundation in software engineering."
           />
           <div className="flex flex-wrap gap-3 items-center">
             <button
               onClick={printResume}
               title="Print resume"
-              className="group inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-950/50 px-4 py-2 text-sm font-semibold text-slate-100 transition-transform hover:-translate-y-0.5 hover:border-accent-blue/70 hover:bg-slate-900/80"
+              className="group flex items-center gap-2 rounded-lg border border-slate-700/60 bg-slate-800/40 px-4 py-2 text-sm font-semibold text-slate-100 transition-all hover:bg-slate-800 hover:text-white"
             >
               <svg
                 className="h-5 w-5 transition-transform group-hover:scale-110"
@@ -183,7 +179,7 @@ export default function Resume() {
             </button>
             <button
               onClick={previewResume}
-              className="group inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-950/50 px-4 py-2 text-sm font-medium text-slate-200 transition-transform hover:-translate-y-0.5 hover:border-slate-500 hover:bg-slate-900/80 hover:text-white"
+              className="group flex items-center gap-2 rounded-lg border border-slate-700/60 bg-slate-800/40 px-4 py-2 text-sm font-medium text-slate-200 transition-all hover:border-slate-500 hover:bg-slate-800"
             >
               <svg
                 className="h-5 w-5 transition-transform group-hover:rotate-12"
@@ -208,7 +204,7 @@ export default function Resume() {
             </button>
             <button
               onClick={downloadResume}
-              className="group inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-950/50 px-4 py-2 text-sm font-medium text-slate-200 transition-transform hover:-translate-y-0.5 hover:border-slate-600 hover:bg-slate-900/80"
+              className="group flex items-center gap-2 rounded-lg border border-slate-700/60 bg-slate-800/40 px-4 py-2 text-sm font-medium text-slate-200 transition-all hover:border-slate-600 hover:bg-slate-800"
             >
               <svg
                 className="h-4 w-4"
@@ -228,204 +224,119 @@ export default function Resume() {
           </div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[340px_minmax(0,1fr)] lg:items-start">
-          <aside className="relative overflow-hidden rounded-3xl border border-slate-800/70 bg-gradient-to-b from-slate-950/90 via-slate-950/75 to-slate-900/40 p-6 shadow-[0_0_0_1px_rgba(15,23,42,0.9)]">
-            <div className="pointer-events-none absolute inset-0">
-              <div className="absolute -right-12 top-0 h-36 w-36 rounded-full bg-accent-blue/18 blur-3xl" />
-              <div className="absolute bottom-0 left-0 h-32 w-32 rounded-full bg-sky-500/10 blur-3xl" />
-            </div>
-            <div className="relative space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-slate-700/80 bg-slate-900/80 text-lg font-semibold text-accent-blue shadow-[0_0_0_1px_rgba(15,23,42,0.8)]">
-                  VB
+        {/* Experience Section */}
+        {EXPERIENCE.length > 0 && (
+          <div className="space-y-8">
+            <h3 className="text-lg font-semibold text-slate-100">
+              Work Experience
+            </h3>
+            <div className="space-y-8">
+              {EXPERIENCE.map((exp, index) => (
+              <article
+                key={index}
+                className="group relative border-l-2 border-slate-800/70 pl-8 pb-10 last:pb-0 transition-colors hover:border-accent-blue/50"
+              >
+                {/* Timeline Dot */}
+                <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full border-2 border-slate-800/70 bg-slate-950 transition-all duration-300 group-hover:scale-125 group-hover:border-accent-blue group-hover:bg-accent-blue/20">
+                  <div className="absolute inset-0 m-auto h-1.5 w-1.5 rounded-full bg-accent-blue opacity-0 transition-opacity group-hover:opacity-100" />
                 </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent-blue">
-                    Portfolio Resume
-                  </p>
-                  <h3 className="mt-2 text-xl font-semibold tracking-tight text-slate-50">
-                    Vinay Bhogal
-                  </h3>
-                  <p className="mt-1 text-sm text-slate-400">
-                    Android and Flutter full-stack developer
-                  </p>
-                </div>
-              </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-4">
-                  <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-                    Experience
-                  </p>
-                  <p className="mt-2 text-2xl font-semibold text-slate-50">
-                    {experienceCount}
-                  </p>
-                  <p className="mt-1 text-xs text-slate-400">active roles</p>
-                </div>
-                <div className="rounded-2xl border border-slate-800/80 bg-slate-900/60 p-4">
-                  <p className="text-xs uppercase tracking-[0.22em] text-slate-500">
-                    Education
-                  </p>
-                  <p className="mt-2 text-2xl font-semibold text-slate-50">
-                    {educationCount}
-                  </p>
-                  <p className="mt-1 text-xs text-slate-400">milestones</p>
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-slate-800/80 bg-slate-900/50 p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
-                  Focus
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-slate-300">
-                  Building useful mobile products with a clean interface, solid
-                  architecture, and pragmatic engineering choices.
-                </p>
-              </div>
-
-              {latestEducation && (
-                <div className="rounded-2xl border border-slate-800/80 bg-slate-900/50 p-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
-                    Current Study
-                  </p>
-                  <p className="mt-2 text-sm font-semibold text-slate-50">
-                    {latestEducation.degree}
-                  </p>
-                  <p className="mt-1 text-sm text-slate-400">
-                    {latestEducation.institution}
-                  </p>
-                  <p className="mt-1 text-xs text-slate-500">
-                    {latestEducation.duration}
-                  </p>
-                </div>
-              )}
-            </div>
-          </aside>
-
-          <div className="grid gap-6">
-            <section className="rounded-3xl border border-slate-800/70 bg-slate-950/40 p-6 shadow-[0_0_0_1px_rgba(15,23,42,0.85)]">
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent-blue">
-                    Education
-                  </p>
-                  <h3 className="mt-2 text-xl font-semibold text-slate-50">
-                    Academic foundation
-                  </h3>
-                </div>
-                <div className="rounded-full border border-slate-700/80 bg-slate-900/70 px-3 py-1 text-xs font-medium text-slate-300">
-                  {educationCount} entries
-                </div>
-              </div>
-
-              <div className="mt-6 grid gap-4">
-                {EDUCATION.map((edu) => (
-                  <article
-                    key={`${edu.degree}-${edu.institution}`}
-                    className="rounded-2xl border border-slate-800/80 bg-slate-900/45 p-5 transition-transform hover:-translate-y-0.5 hover:border-accent-blue/50 hover:bg-slate-900/70"
-                  >
-                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                      <div className="space-y-2">
-                        <h4 className="text-base font-semibold tracking-tight text-slate-50">
-                          {edu.degree}
-                        </h4>
-                        <div className="flex flex-wrap items-center gap-2 text-sm text-slate-400">
-                          <span className="font-medium text-accent-blue">
-                            {edu.institution}
-                          </span>
-                          <span className="text-slate-600">•</span>
-                          <span>{edu.location}</span>
-                        </div>
-                      </div>
-                      <span className="inline-flex w-fit rounded-full border border-slate-700/80 bg-slate-950/70 px-3 py-1 text-xs font-medium text-slate-300">
-                        {edu.duration}
+                <div className="space-y-3">
+                  {/* Header */}
+                  <div className="space-y-1">
+                    <h4 className="text-base font-semibold text-slate-100">
+                      {exp.title}
+                    </h4>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                      <span className="font-medium text-accent-blue">
+                        {exp.company}
                       </span>
+                      <span className="text-slate-500">•</span>
+                      <span className="text-slate-400">{exp.location}</span>
+                      <span className="text-slate-500">•</span>
+                      <span className="text-slate-400">{exp.duration}</span>
                     </div>
+                  </div>
 
-                    {edu.description && (
-                      <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-300">
-                        {edu.description}
-                      </p>
-                    )}
+                  {/* Description */}
+                  <p className="text-sm leading-relaxed text-slate-300">
+                    {exp.description}
+                  </p>
 
-                    {edu.achievements && edu.achievements.length > 0 && (
-                      <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                        {edu.achievements.map((achievement) => (
-                          <li
-                            key={achievement}
-                            className="flex items-start gap-3 rounded-xl border border-slate-800/70 bg-slate-950/50 px-3 py-2 text-sm text-slate-400"
-                          >
-                            <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-blue" />
-                            <span className="leading-relaxed">{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </article>
-                ))}
-              </div>
-            </section>
+                  {/* Achievements */}
+                  <ul className="space-y-2">
+                    {exp.achievements.map((achievement, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-3 text-sm text-slate-400"
+                      >
+                        <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-accent-blue/70" />
+                        <span className="leading-relaxed">{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+        )}
 
-            {EXPERIENCE.length > 0 && (
-              <section className="rounded-3xl border border-slate-800/70 bg-slate-950/40 p-6 shadow-[0_0_0_1px_rgba(15,23,42,0.85)]">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-accent-blue">
-                      Experience
+        {/* Education Section */}
+        <div className="space-y-8">
+          <h3 className="text-lg font-semibold text-slate-100">Education</h3>
+          <div className="space-y-8">
+            {EDUCATION.map((edu, index) => (
+              <article
+                key={index}
+                className="group relative border-l-2 border-slate-800/70 pl-8 pb-10 last:pb-0 transition-colors hover:border-accent-blue/50"
+              >
+                {/* Timeline Dot */}
+                <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full border-2 border-slate-800/70 bg-slate-950 transition-all duration-300 group-hover:scale-125 group-hover:border-accent-blue group-hover:bg-accent-blue/20">
+                  <div className="absolute inset-0 m-auto h-1.5 w-1.5 rounded-full bg-accent-blue opacity-0 transition-opacity group-hover:opacity-100" />
+                </div>
+
+                <div className="space-y-3">
+                  {/* Header */}
+                  <div className="space-y-1">
+                    <h4 className="text-base font-semibold text-slate-100">
+                      {edu.degree}
+                    </h4>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                      <span className="font-medium text-accent-blue">
+                        {edu.institution}
+                      </span>
+                      <span className="text-slate-500">•</span>
+                      <span className="text-slate-400">{edu.location}</span>
+                      <span className="text-slate-500">•</span>
+                      <span className="text-slate-400">{edu.duration}</span>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  {edu.description && (
+                    <p className="text-sm leading-relaxed text-slate-300">
+                      {edu.description}
                     </p>
-                    <h3 className="mt-2 text-xl font-semibold text-slate-50">
-                      Professional background
-                    </h3>
-                  </div>
-                  <div className="rounded-full border border-slate-700/80 bg-slate-900/70 px-3 py-1 text-xs font-medium text-slate-300">
-                    {experienceCount} entries
-                  </div>
+                  )}
+
+                  {/* Achievements */}
+                  {edu.achievements && edu.achievements.length > 0 && (
+                    <ul className="space-y-2">
+                      {edu.achievements.map((achievement, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-sm text-slate-400"
+                        >
+                          <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-accent-blue/70" />
+                          <span className="leading-relaxed">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
-
-                <div className="mt-6 grid gap-4">
-                  {EXPERIENCE.map((exp) => (
-                    <article
-                      key={`${exp.title}-${exp.company}`}
-                      className="rounded-2xl border border-slate-800/80 bg-slate-900/45 p-5 transition-transform hover:-translate-y-0.5 hover:border-accent-blue/50 hover:bg-slate-900/70"
-                    >
-                      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                        <div className="space-y-2">
-                          <h4 className="text-base font-semibold tracking-tight text-slate-50">
-                            {exp.title}
-                          </h4>
-                          <div className="flex flex-wrap items-center gap-2 text-sm text-slate-400">
-                            <span className="font-medium text-accent-blue">
-                              {exp.company}
-                            </span>
-                            <span className="text-slate-600">•</span>
-                            <span>{exp.location}</span>
-                          </div>
-                        </div>
-                        <span className="inline-flex w-fit rounded-full border border-slate-700/80 bg-slate-950/70 px-3 py-1 text-xs font-medium text-slate-300">
-                          {exp.duration}
-                        </span>
-                      </div>
-
-                      <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-300">
-                        {exp.description}
-                      </p>
-
-                      <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                        {exp.achievements.map((achievement) => (
-                          <li
-                            key={achievement}
-                            className="flex items-start gap-3 rounded-xl border border-slate-800/70 bg-slate-950/50 px-3 py-2 text-sm text-slate-400"
-                          >
-                            <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-blue" />
-                            <span className="leading-relaxed">{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </article>
-                  ))}
-                </div>
-              </section>
-            )}
+              </article>
+            ))}
           </div>
         </div>
       </div>
