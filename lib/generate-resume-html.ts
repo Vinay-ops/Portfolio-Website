@@ -6,140 +6,143 @@ export const generateResumeHTML = () => {
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+export const generateResumeHTML = () => {
+  const escape = (s: string) => String(s).replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+  const strongFirst = (text: string) => {
+    if (!text) return "";
+    const t = text.trim();
+    const idx = t.indexOf(" ");
+    if (idx === -1) return `<strong>${escape(t)}</strong>`;
+    const first = escape(t.slice(0, idx));
+    const rest = escape(t.slice(idx + 1));
+    return `<strong>${first}</strong> ${rest}`;
+  };
+
+  // static skills grouped as requested
+  const SKILLS: { category: string; values: string[] }[] = [
+    { category: "Languages", values: ["Java", "Kotlin", "Dart", "Python", "C#"] },
+    { category: "Frameworks", values: ["Flutter", "Jetpack Compose", "Material 3", "Unity"] },
+    { category: "Databases & Tools", values: ["Firebase", "MySQL", "PostgreSQL", "Room", "SQLite", "Git"] }
+  ];
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Vinay Bhogal — Resume</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --primary:#2563eb; --muted:#6b7280; --text:#0f172a; --border:#e6edf3;
-      --sidebar:#f8fafc; --accent-bg:#eff6ff;
-    }
+    /* Margins: 0.5in on all sides */
+    @page { margin: 0.5in; }
     html,body{height:100%;margin:0;padding:0}
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:#ffffff}
-    @media print{body{background:white} .container{box-shadow:none}}
+    body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#0f172a;background:#fff;padding:0.5in}
+    .container{max-width:780px;margin:0 auto}
 
-    .page{max-width:210mm;margin:12mm auto;padding:0;display:flex;gap:24px;background:white}
-    .sidebar{width:72mm;background:var(--sidebar);padding:22px;border-radius:8px;border:1px solid var(--border)}
-    .profile{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:18px}
-    .profile img{width:110px;height:110px;border-radius:12px;object-fit:cover;border:3px solid white;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
-    .name{font-size:14px;font-weight:700;color:var(--text);margin-top:10px}
-    .role{font-size:12px;color:var(--primary);font-weight:600;margin-top:4px}
+    /* Name & contact centered */
+    .name{font-size:28px;font-weight:800;text-align:center;margin:0}
+    .tagline{font-size:14px;text-align:center;margin-top:6px;color:#2563eb;font-style:italic}
+    .contact{font-size:12px;text-align:center;color:#475569;margin-top:8px}
+    .contact a{color:inherit;text-decoration:none}
 
-    .section-title{font-size:11px;font-weight:700;color:var(--text);text-transform:uppercase;letter-spacing:.08em;margin:10px 0}
-    .contact a{display:block;color:var(--muted);text-decoration:none;font-size:12px;margin:6px 0}
-    .skill-tags{display:flex;flex-wrap:wrap;gap:6px}
-    .tag{background:white;border:1px solid var(--border);padding:6px 8px;border-radius:6px;font-size:11px;color:var(--text)}
+    /* Single column sections, consistent spacing */
+    .section{margin-top:18px;margin-bottom:18px}
+    .section-header{font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+    .section-line{height:1px;background:#e6edf3;width:100%;margin-top:6px}
 
-    .main{flex:1;padding:22px;border-radius:8px;border:1px solid var(--border)}
-    header{display:flex;flex-direction:column;margin-bottom:12px}
-    header h1{font-size:26px;margin:0;letter-spacing:-0.01em}
-    header .subtitle{font-size:13px;color:var(--muted);margin-top:6px}
+    /* Title row with date right-aligned */
+    .title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+    .title{font-size:13px;font-weight:700}
+    .date{font-size:12px;color:#6b7280;white-space:nowrap}
 
-    .block{margin-bottom:14px}
-    .item{margin-bottom:12px}
-    .item .title{font-weight:700;color:var(--text);font-size:13px}
-    .meta{font-size:11px;color:var(--muted);margin-top:4px}
-    .desc{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.45}
-    ul.bullets{padding-left:16px;margin:8px 0}
-    ul.bullets li{margin-bottom:6px;font-size:12px;color:var(--muted)}
+    /* Description and bullets */
+    .desc{font-size:12px;color:#374151;margin-top:6px}
+    ul.bullets{margin:8px 0 0 18px;padding-left:0}
+    ul.bullets li{margin-bottom:6px;font-size:12px;color:#374151;line-height:1.4}
 
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-    .project{padding:10px;border-radius:8px;border:1px solid var(--border);background:#fff}
-    .project .tech{font-size:11px;color:var(--primary);font-weight:700;margin-bottom:6px}
+    /* Skills table: left column category, right column comma-separated values */
+    .skills-table{width:100%;border-collapse:collapse;margin-top:6px}
+    .skills-table td{vertical-align:top;padding:6px 8px}
+    .skills-cat{width:160px;font-weight:600;color:#0f172a}
+    .skills-val{color:#374151}
+
+    /* Projects grid is simple single column cards */
+    .project{margin-top:8px;padding:8px;border-radius:6px;border:1px solid #eef2f7}
+
+    footer{font-size:10px;color:#94a3b8;margin-top:18px;text-align:right}
   </style>
 </head>
 <body>
-  <div class="page">
-    <aside class="sidebar">
-      <div class="profile">
-        <img src="/image/VinayProfilePic.jpg" alt="Vinay Bhogal" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22110%22 height=%22110%22 viewBox=%220 0 110 110%22><rect width=%22110%25%22 height=%22110%25%22 fill=%22%23f1f5f9%22/><text x=%2255%22 y=%2258%22 font-size=%2236%22 font-family=%22Arial%22 fill=%22%23626b6f%22 text-anchor=%22middle%22 alignment-baseline=%22middle%22>VB</text></svg>'" />
-        <div class="name">VINAY BHOGAL</div>
-        <div class="role">Aspiring Android & Flutter Full-Stack Developer</div>
-      </div>
+  <div class="container">
+    <h1 class="name">VINAY BHOGAL</h1>
+    <div class="tagline">Aspiring Android & Flutter Full-Stack Developer</div>
+    <div class="contact">vbhogal5@gmail.com &nbsp; | &nbsp; linkedin.com/in/vinay-bhogal-78a623319 &nbsp; | &nbsp; github.com/Vinay-ops</div>
 
-      <div class="contact">
-        <div class="section-title">Contact</div>
-        <a href="mailto:vbhogal5@gmail.com">vbhogal5@gmail.com</a>
-        <a href="https://linkedin.com/in/vinay-bhogal-78a623319">linkedin.com/in/vinay-bhogal-78a623319</a>
-        <a href="https://github.com/Vinay-ops">github.com/Vinay-ops</a>
-      </div>
-
-      <div style="margin-top:12px">
-        <div class="section-title">Expertise</div>
-        <div class="skill-group">
-          <div style="font-size:11px;color:var(--muted);margin-bottom:6px">Languages</div>
-          <div class="skill-tags">
-            <span class="tag">Java</span><span class="tag">Kotlin</span><span class="tag">Dart</span><span class="tag">Python</span>
+    <!-- Education -->
+    <section class="section">
+      <div class="section-header">Education</div>
+      <div class="section-line"></div>
+      ${EDUCATION.map(edu => `
+        <div style="margin-top:10px">
+          <div class="title-row">
+            <div class="title">${escape(edu.degree)}</div>
+            <div class="date">${escape(edu.duration)}</div>
           </div>
+          <div class="desc">${escape(edu.institution)} • ${escape(edu.location)}</div>
+          ${edu.description ? `<div class="desc">${escape(edu.description)}</div>` : ''}
+          ${edu.achievements && edu.achievements.length>0 ? `<ul class="bullets">${edu.achievements.map(a=>`<li>${strongFirst(a)}</li>`).join('')}</ul>` : ''}
         </div>
-        <div class="skill-group" style="margin-top:8px">
-          <div style="font-size:11px;color:var(--muted);margin-bottom:6px">Frameworks</div>
-          <div class="skill-tags">
-            <span class="tag">Flutter</span><span class="tag">Jetpack Compose</span><span class="tag">Material 3</span>
+      `).join('')}
+    </section>
+
+    <!-- Experience -->
+    ${EXPERIENCE.length>0 ? `
+    <section class="section">
+      <div class="section-header">Experience</div>
+      <div class="section-line"></div>
+      ${EXPERIENCE.map(exp=>`
+        <div style="margin-top:10px">
+          <div class="title-row">
+            <div class="title">${escape(exp.title)} — ${escape(exp.company)}</div>
+            <div class="date">${escape(exp.duration)}</div>
           </div>
+          <div class="desc">${escape(exp.location)}</div>
+          <div class="desc">${escape(exp.description)}</div>
+          ${exp.achievements && exp.achievements.length>0 ? `<ul class="bullets">${exp.achievements.map(a=>`<li>${strongFirst(a)}</li>`).join('')}</ul>` : ''}
         </div>
-      </div>
+      `).join('')}
+    </section>
+    ` : ''}
 
-      <div style="margin-top:12px">
-        <div class="section-title">Languages</div>
-        <div style="font-size:12px;color:var(--muted)">
-          <div>English — Professional</div>
-          <div>Hindi — Native</div>
-          <div>Marathi — Native</div>
+    <!-- Skills -->
+    <section class="section">
+      <div class="section-header">Skills</div>
+      <div class="section-line"></div>
+      <table class="skills-table">
+        ${SKILLS.map(s=>`
+          <tr>
+            <td class="skills-cat">${s.category}</td>
+            <td class="skills-val">${s.values.join(', ')}</td>
+          </tr>
+        `).join('')}
+      </table>
+    </section>
+
+    <!-- Projects -->
+    <section class="section">
+      <div class="section-header">Key Projects</div>
+      <div class="section-line"></div>
+      ${PROJECTS.slice(0,6).map(p=>`
+        <div class="project">
+          <div style="font-weight:700">${escape(p.name)}</div>
+          <div style="font-size:12px;color:#2563eb;margin-top:4px">${p.tech.join(', ')}</div>
+          <div class="desc">${escape(p.description)}</div>
         </div>
-      </div>
-    </aside>
+      `).join('')}
+    </section>
 
-    <main class="main">
-      <header>
-        <h1>VINAY BHOGAL</h1>
-        <div class="subtitle">Aspiring Android & Flutter Full-Stack Developer</div>
-      </header>
-
-      <section class="block">
-        <div class="section-title">Education</div>
-        ${EDUCATION.map(
-          (edu) => `
-          <div class="item">
-            <div class="title">${edu.degree}</div>
-            <div class="meta">${edu.institution} • ${edu.location} • ${edu.duration}</div>
-            ${edu.description ? `<div class="desc">${edu.description}</div>` : ""}
-            ${edu.achievements && edu.achievements.length > 0 ? `<ul class="bullets">${edu.achievements.map(a => `<li>${a}</li>`).join("")}</ul>` : ""}
-          </div>
-        `
-        ).join("")}
-      </section>
-
-      ${EXPERIENCE.length > 0 ? `
-      <section class="block">
-        <div class="section-title">Experience</div>
-        ${EXPERIENCE.map(exp => `
-          <div class="item">
-            <div class="title">${exp.title}</div>
-            <div class="meta">${exp.company} • ${exp.location} • ${exp.duration}</div>
-            <div class="desc">${exp.description}</div>
-            <ul class="bullets">${exp.achievements.map(a => `<li>${a}</li>`).join("")}</ul>
-          </div>
-        `).join("")}
-      </section>
-      ` : ""}
-
-      <section class="block">
-        <div class="section-title">Key Projects</div>
-        <div class="projects">
-          ${PROJECTS.slice(0, 6).map(p => `
-            <div class="project">
-              <div class="project-name" style="font-weight:700;font-size:13px">${p.name}</div>
-              <div class="tech">${p.tech.join(' • ')}</div>
-              <div class="desc">${p.description}</div>
-            </div>
-          `).join("")}
-        </div>
-      </section>
-    </main>
+    <footer>Generated from Vinay Bhogal's portfolio</footer>
   </div>
 </body>
 </html>`;
