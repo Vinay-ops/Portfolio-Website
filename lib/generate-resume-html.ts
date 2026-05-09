@@ -35,16 +35,19 @@ export const generateResumeHTML = () => {
     body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:#0f172a;background:#fff;padding:0.5in}
     .container{max-width:780px;margin:0 auto}
 
-    /* Name & contact centered */
-    .name{font-size:28px;font-weight:800;text-align:center;margin:0}
-    .tagline{font-size:14px;text-align:center;margin-top:6px;color:#2563eb;font-style:italic}
-    .contact{font-size:12px;text-align:center;color:#475569;margin-top:8px}
+    /* Header: photo left, name/title right (single-column below) */
+    .header-flex{display:flex;align-items:center;gap:16px;margin-bottom:8px}
+    .photo img{width:96px;height:96px;border-radius:8px;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+    .header-right{flex:1}
+    .name{font-size:26px;font-weight:800;margin:0;color:#0b4a83}
+    .tagline{font-size:13px;color:#2563eb;font-style:italic;margin-top:6px}
+    .contact{font-size:11px;color:#475569;margin-top:8px}
     .contact a{color:inherit;text-decoration:none}
 
     /* Single column sections, consistent spacing */
     .section{margin-top:18px;margin-bottom:18px}
-    .section-header{font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
-    .section-line{height:1px;background:#e6edf3;width:100%;margin-top:6px}
+    .section-header{font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;color:#0b4a83}
+    .section-line{height:2px;background:#e6edf3;width:100%;margin-top:6px}
 
     /* Title row with date right-aligned */
     .title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
@@ -63,7 +66,7 @@ export const generateResumeHTML = () => {
     .skills-val{color:#374151}
 
     /* Projects grid is simple single column cards */
-    .project{margin-top:8px;padding:8px;border-radius:6px;border:1px solid #eef2f7}
+    .project{margin-top:8px;padding:12px;border-radius:8px;border:1px solid #dbeaf7;background:#ffffff;box-shadow:0 2px 6px rgba(11,74,131,0.03)}
 
     footer{font-size:10px;color:#94a3b8;margin-top:18px;text-align:right}
   </style>
