@@ -16,17 +16,56 @@ export type Experience = {
   achievements: string[];
 };
 
+export type Contact = {
+  email: string;
+  location: string;
+  linkedin: string;
+  github: string;
+};
+
+export type SkillGroup = {
+  category: string;
+  values: string[];
+};
+
+export const CONTACT: Contact = {
+  email: "vbhogal5@gmail.com",
+  location: "Mumbai, India",
+  linkedin: "linkedin.com/in/vinay-bhogal-78a623319",
+  github: "github.com/Vinay-ops"
+};
+
+export const PROFESSIONAL_SUMMARY =
+  "B.Tech Information Technology student focused on Android and Flutter development. I build production-style mobile apps with clean architecture, intuitive UX, and reliable data layers, and I am actively seeking software engineering internship opportunities.";
+
+export const SKILL_GROUPS: SkillGroup[] = [
+  { category: "Languages", values: ["Java", "Kotlin", "Dart", "Python", "C#"] },
+  {
+    category: "Frameworks",
+    values: ["Jetpack Compose", "Flutter", "Material 3", "MVVM", "Coroutines"]
+  },
+  {
+    category: "Databases & Cloud",
+    values: ["Firebase", "Room", "SQLite", "MySQL", "PostgreSQL"]
+  },
+  {
+    category: "Developer Tools",
+    values: ["Android Studio", "VS Code", "Git", "GitHub", "Postman"]
+  }
+];
+
 export const EDUCATION: Education[] = [
   {
     degree: "Bachelor of Technology in Information Technology",
     institution: "Shah and Anchor Kutchhi Engineering College",
     location: "Mumbai, India",
     duration: "2024 - 2028",
-    description: "Currently pursuing BTech with focus on software development and mobile technologies",
+    description:
+      "Pursuing core coursework in data structures, object-oriented programming, databases, and software engineering.",
     achievements: [
-      "Specializing in mobile app development and full-stack technologies",
-      "Working on personal projects to build practical development skills",
-      "Learning modern frameworks including Flutter, Android, and web technologies"
+      "Building end-to-end mobile applications as project-based practical work",
+      "Applying modern Android and Flutter patterns in independent projects",
+      "Strengthening system design and API integration fundamentals"
     ]
   },
   {
@@ -45,4 +84,18 @@ export const EDUCATION: Education[] = [
   }
 ];
 
-export const EXPERIENCE: Experience[] = [];
+export const EXPERIENCE: Experience[] = [
+  {
+    title: "Independent Android & Flutter Developer",
+    company: "Personal Projects",
+    location: "Mumbai, India",
+    duration: "2023 - Present",
+    description:
+      "Designing and building mobile products to solve real user problems, from planning and UI implementation to data persistence and release-ready polishing.",
+    achievements: [
+      "Built and shipped multiple Android and Flutter applications with clean, maintainable codebases",
+      "Integrated Firebase and AI services for authentication, data sync, and intelligent user workflows",
+      "Implemented MVVM architecture, local databases, and state management to improve reliability and scalability"
+    ]
+  }
+];

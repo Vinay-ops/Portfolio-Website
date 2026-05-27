@@ -1,48 +1,64 @@
 import Section from "@/components/section";
 import SectionHeading from "@/components/section-heading";
-
-const HIGHLIGHTS = [
-  "Performance-first architecture",
-  "User-focused product thinking",
-  "Scalable backend systems",
-  "Clean, intentional UI"
-];
+import { EDUCATION, EXPERIENCE, PROFESSIONAL_SUMMARY } from "@/lib/resume";
+import { PROJECTS } from "@/lib/projects";
 
 export default function About() {
+  const primaryEducation = EDUCATION[0];
+  const primaryExperience = EXPERIENCE[0];
+
   return (
     <Section id="about">
-      <div className="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] md:items-start">
-        <SectionHeading
-          eyebrow="About"
-          title="I Design Software That Feels Invisible"
-          subtitle="Engineering should disappear behind the experience. I combine mobile, backend, and product thinking to ship systems that are fast, stable, and quietly elegant."
-        />
-        <div className="space-y-6 text-sm leading-relaxed text-slate-400">
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {HIGHLIGHTS.map((item) => (
-              <li
-                key={item}
-                className="flex items-start gap-3 rounded-xl border border-slate-800/70 bg-slate-900/40 px-4 py-3 text-slate-200"
-              >
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-accent-blue" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <p>
-            I specialise in Android development and full stack systems where
-            the details matter. From designing APIs and data models to tuning
+      <div className="grid gap-10 md:grid-cols-2">
+        <div>
+          <SectionHeading title="About Me" />
+          <p className="mt-5 text-[15px] leading-7 text-slate-600">
+            {PROFESSIONAL_SUMMARY}
+          </p>
+          <p className="mt-4 text-[15px] leading-7 text-slate-600">
+            I specialize in Android development and full stack systems where the
+            details matter. From designing APIs and data models to tuning
             rendering on low-end devices, I focus on the invisible layers that
             make products feel fast, stable, and considered.
           </p>
-          <p>
-            Working end-to-end means I can collaborate with teams across
-            product, design, and infrastructure, align on constraints early, and
-            ship solutions that scale without sacrificing experience.
-          </p>
+          <div className="mt-8 flex gap-14">
+            <div>
+              <p className="text-4xl font-bold text-blue-700">{PROJECTS.length}+</p>
+              <p className="mt-1 text-xs font-semibold tracking-wider text-slate-500">
+                PROJECTS COMPLETED
+              </p>
+            </div>
+            <div>
+              <p className="text-4xl font-bold text-blue-700">2+</p>
+              <p className="mt-1 text-xs font-semibold tracking-wider text-slate-500">
+                YEARS BUILDING
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="space-y-5">
+          {primaryEducation && (
+            <article className="rounded-xl bg-white px-6 py-5 shadow-sm">
+              <p className="text-sm font-semibold text-slate-900">
+                {primaryEducation.degree}
+              </p>
+              <p className="mt-1 text-sm text-slate-500">
+                {primaryEducation.institution}, {primaryEducation.duration}
+              </p>
+            </article>
+          )}
+          {primaryExperience && (
+            <article className="rounded-xl bg-white px-6 py-5 shadow-sm">
+              <p className="text-sm font-semibold text-slate-900">
+                {primaryExperience.title}
+              </p>
+              <p className="mt-1 text-sm text-slate-500">
+                {primaryExperience.company}, {primaryExperience.duration}
+              </p>
+            </article>
+          )}
         </div>
       </div>
     </Section>
   );
 }
-

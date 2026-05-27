@@ -1,4 +1,10 @@
-import { EDUCATION, EXPERIENCE } from "./resume";
+import {
+  CONTACT,
+  EDUCATION,
+  EXPERIENCE,
+  PROFESSIONAL_SUMMARY,
+  SKILL_GROUPS
+} from "./resume";
 import { PROJECTS } from "./projects";
 
 export const generateResumeHTML = () => {
@@ -13,13 +19,6 @@ export const generateResumeHTML = () => {
     const rest = escape(t.slice(idx + 1));
     return `<strong>${first}</strong> ${rest}`;
   };
-
-  // static skills grouped as requested
-  const SKILLS: { category: string; values: string[] }[] = [
-    { category: "Languages", values: ["Java", "Kotlin", "Dart", "Python", "C#"] },
-    { category: "Frameworks", values: ["Flutter", "Jetpack Compose", "Material 3", "Unity"] },
-    { category: "Databases & Tools", values: ["Firebase", "MySQL", "PostgreSQL", "Room", "SQLite", "Git"] }
-  ];
 
   return `<!doctype html>
 <html lang="en">
@@ -43,6 +42,7 @@ export const generateResumeHTML = () => {
     .tagline{font-size:13px;color:#2563eb;font-style:italic;margin-top:6px}
     .contact{font-size:11px;color:#475569;margin-top:8px}
     .contact a{color:inherit;text-decoration:none}
+    .summary{margin-top:10px;padding:12px;border-radius:8px;border:1px solid #dbeaf7;background:#f8fbff;font-size:12px;line-height:1.5;color:#334155}
 
     /* Single column sections, consistent spacing */
     .section{margin-top:18px;margin-bottom:18px}
@@ -77,8 +77,9 @@ export const generateResumeHTML = () => {
       <img src="/image/VinayProfilePic.jpg" alt="Vinay Bhogal" style="width:110px;height:110px;border-radius:12px;object-fit:cover;border:3px solid #fff;box-shadow:0 6px 18px rgba(2,6,23,0.06)" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22110%22 height=%22110%22 viewBox=%220 0 110 110%22><rect width=%22110%25%22 height=%22110%25%22 fill=%22%23f1f5f9%22/><text x=%2255%22 y=%2258%22 font-size=%2236%22 font-family=%22Arial%22 fill=%22%23626b6f%22 text-anchor=%22middle%22 alignment-baseline=%22middle%22>VB</text></svg>'" />
     </div>
     <h1 class="name">VINAY BHOGAL</h1>
-    <div class="tagline">Aspiring Android & Flutter Full-Stack Developer</div>
-    <div class="contact">vbhogal5@gmail.com &nbsp; | &nbsp; linkedin.com/in/vinay-bhogal-78a623319 &nbsp; | &nbsp; github.com/Vinay-ops</div>
+    <div class="tagline">Android & Flutter Developer</div>
+    <div class="contact">${escape(CONTACT.email)} &nbsp; | &nbsp; ${escape(CONTACT.location)} &nbsp; | &nbsp; ${escape(CONTACT.linkedin)} &nbsp; | &nbsp; ${escape(CONTACT.github)}</div>
+    <div class="summary">${escape(PROFESSIONAL_SUMMARY)}</div>
 
     <!-- Education -->
     <section class="section">
@@ -121,7 +122,7 @@ export const generateResumeHTML = () => {
       <div class="section-header">Skills</div>
       <div class="section-line"></div>
       <table class="skills-table">
-        ${SKILLS.map(s=>`
+        ${SKILL_GROUPS.map(s=>`
           <tr>
             <td class="skills-cat">${s.category}</td>
             <td class="skills-val">${s.values.join(', ')}</td>
