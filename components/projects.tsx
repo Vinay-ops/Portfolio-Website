@@ -5,55 +5,52 @@ import { PROJECTS } from "@/lib/projects";
 export default function Projects() {
   return (
     <Section id="projects">
-      <div className="grid gap-10">
+      <div className="grid gap-12">
         <SectionHeading
-          eyebrow="Projects"
-          title="Selected Work"
-          subtitle="A sample of systems and products that balance strong architecture with considered interaction design."
+          eyebrow="GitHub Portfolio"
+          title="Real Projects"
+          subtitle="A selection of work spanning mobile applications, full-stack systems, and game development."
         />
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.map((project) => (
             <article
               key={project.name}
-              className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-accent-blue/50 hover:shadow-md dark:border-slate-800/70 dark:bg-slate-950/40 dark:shadow-[0_0_0_1px_rgba(15,23,42,0.9)] dark:hover:border-accent-blue/70 dark:hover:shadow-glow"
+              className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-blue/50 hover:shadow-md dark:border-slate-800/70 dark:bg-slate-900/40 dark:shadow-[0_0_0_1px_rgba(15,23,42,0.9)] dark:hover:border-accent-blue/70 dark:hover:shadow-glow"
             >
               <div>
-                <h3 className="text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-50">
+                <div className="mb-4 flex items-center justify-between">
+                  <div className="flex gap-2">
+                    {project.live && (
+                      <span className="flex h-2 w-2 rounded-full bg-emerald-500" />
+                    )}
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-50">
                   {project.name}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                   {project.description}
                 </p>
-                <ul className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2">
                   {project.tech.map((item) => (
-                    <li
+                    <span
                       key={item}
-                      className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600 dark:border-slate-700/80 dark:bg-slate-900/70 dark:text-slate-100"
+                      className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500"
                     >
                       {item}
-                    </li>
+                    </span>
                   ))}
-                </ul>
+                </div>
               </div>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-8">
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600 transition-colors hover:border-accent-blue/70 hover:text-slate-900 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:hover:text-white"
+                  className="inline-flex w-full items-center justify-center rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-slate-600 transition-colors hover:border-accent-blue/70 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:text-white"
                 >
-                  GitHub
+                  View on GitHub
                 </a>
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center rounded-full bg-accent-blue/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-950 shadow-sm transition-transform hover:-translate-y-0.5 hover:bg-sky-400 dark:shadow-glow"
-                  >
-                    Live Demo
-                  </a>
-                )}
               </div>
             </article>
           ))}

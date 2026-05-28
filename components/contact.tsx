@@ -23,80 +23,87 @@ export default function Contact() {
 
   return (
     <Section id="contact">
-      <div className="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] md:items-start">
-        <SectionHeading
-          eyebrow="Contact"
-          title="Let's Build Something Together"
-          subtitle="Currently available for freelance opportunities or full-time roles. Reach out via the form or my social links."
-        />
-        <form
-          onSubmit={handleSubmit}
-          className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800/70 dark:bg-slate-950/40 dark:shadow-[0_0_0_1px_rgba(15,23,42,0.9)]"
-        >
-          <div className="space-y-4">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="space-y-1.5">
-                <label
-                  htmlFor="name"
-                  className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500"
-                >
-                  Name
-                </label>
+      <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr]">
+        <div className="space-y-8">
+          <SectionHeading
+            eyebrow="Let's Connect"
+            title="Open to Opportunities"
+            subtitle="Whether it's a mobile app project, internship opportunity, or a tech chat — I'd love to connect. Always open to learning and growing together."
+          />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+            {[
+              { label: "Email", value: CONTACT.email, icon: "📧" },
+              { label: "Location", value: CONTACT.location, icon: "📍" },
+              { label: "LinkedIn", value: "Vinay Bhogal", icon: "🔗", href: `https://${CONTACT.linkedin}` },
+              { label: "GitHub", value: "@Vinay-ops", icon: "💻", href: `https://${CONTACT.github}` }
+            ].map((item) => (
+              <div key={item.label} className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50/50 p-4 dark:border-slate-800 dark:bg-slate-900/50">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-lg shadow-sm dark:bg-slate-800">
+                  {item.icon}
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{item.label}</p>
+                  {item.href ? (
+                    <a href={item.href} target="_blank" className="text-sm font-semibold text-slate-700 hover:text-accent-blue dark:text-slate-200">
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">{item.value}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl dark:border-slate-800 dark:bg-slate-900/40">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div className="space-y-2">
+                <label htmlFor="name" className="text-xs font-bold uppercase tracking-widest text-slate-400">Name</label>
                 <input
                   id="name"
                   name="name"
                   type="text"
                   required
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none ring-0 transition focus:border-accent-blue/50 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:focus:border-accent-blue/80 dark:focus:shadow-glow"
+                  placeholder="Your Name"
+                  className="w-full rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4 text-sm text-slate-900 outline-none transition-all focus:border-accent-blue/50 focus:bg-white dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-100 dark:focus:border-accent-blue/50 dark:focus:bg-slate-900"
                 />
               </div>
-              <div className="space-y-1.5">
-                <label
-                  htmlFor="email"
-                  className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500"
-                >
-                  Email
-                </label>
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-xs font-bold uppercase tracking-widest text-slate-400">Email</label>
                 <input
                   id="email"
                   name="email"
                   type="email"
                   required
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none ring-0 transition focus:border-accent-blue/50 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:focus:border-accent-blue/80 dark:focus:shadow-glow"
+                  placeholder="hello@example.com"
+                  className="w-full rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4 text-sm text-slate-900 outline-none transition-all focus:border-accent-blue/50 focus:bg-white dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-100 dark:focus:border-accent-blue/50 dark:focus:bg-slate-900"
                 />
               </div>
             </div>
-            <div className="space-y-1.5">
-              <label
-                htmlFor="message"
-                className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500"
-              >
-                Message
-              </label>
+            <div className="space-y-2">
+              <label htmlFor="message" className="text-xs font-bold uppercase tracking-widest text-slate-400">Message</label>
               <textarea
                 id="message"
                 name="message"
                 required
-                rows={4}
-                className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none ring-0 transition focus:border-accent-blue/50 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:focus:border-accent-blue/80 dark:focus:shadow-glow"
+                rows={5}
+                placeholder="Tell me about your project..."
+                className="w-full resize-none rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4 text-sm text-slate-900 outline-none transition-all focus:border-accent-blue/50 focus:bg-white dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-100 dark:focus:border-accent-blue/50 dark:focus:bg-slate-900"
               />
             </div>
-            <div className="mt-6 flex items-center justify-between gap-4">
-              <button
-                type="submit"
-                disabled={formState !== "idle"}
-                className="inline-flex flex-1 items-center justify-center rounded-full bg-accent-blue px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-slate-950 shadow-sm transition enabled:hover:-translate-y-0.5 enabled:hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-60 dark:shadow-glow"
-              >
-                {formState === "submitting" ? "Sending" : "Send Message"}
-              </button>
-              {formState === "submitted" && (
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                  Message captured.
-                </p>
-              )}
-            </div>
-          </div>
-        </form>
+            <button
+              type="submit"
+              disabled={formState !== "idle"}
+              className="group relative flex w-full items-center justify-center overflow-hidden rounded-2xl bg-slate-900 px-8 py-5 text-sm font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-accent-blue hover:text-slate-950 disabled:opacity-50 dark:bg-accent-blue dark:text-slate-950 dark:hover:bg-sky-400"
+            >
+              <span className="relative z-10">
+                {formState === "submitting" ? "Sending..." : formState === "submitted" ? "Message Sent! ✨" : "Send Message"}
+              </span>
+            </button>
+          </form>
+        </div>
       </div>
     </Section>
   );
