@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/Vinay-ops/AppStack_Pay-Sahayak"
   },
   {
-    name: "Best Buy Clone",
+    name: "Best Buy Finder",
     description:
       "A mobile e‑commerce app built with Flutter and Dart showcasing product listings, search, cart interactions, and mobile-friendly state management—implemented as a Best Buy clone for mobile.",
     tech: ["Flutter", "Dart", "Provider", "REST API"],
