@@ -165,10 +165,10 @@ export default function Resume() {
             <button
               onClick={printResume}
               title="Print resume"
-              className="group flex items-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-blue-200 hover:text-blue-700"
+              className="group flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-accent-blue/50 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:text-white"
             >
               <svg
-                className="h-5 w-5 transition-transform group-hover:scale-110"
+                className="h-4 w-4 transition-transform group-hover:scale-110"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -184,10 +184,10 @@ export default function Resume() {
             </button>
             <button
               onClick={previewResume}
-              className="group flex items-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:border-blue-200 hover:text-blue-700"
+              className="group flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-accent-blue/50 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:text-white"
             >
               <svg
-                className="h-5 w-5 transition-transform group-hover:rotate-12"
+                className="h-4 w-4 transition-transform group-hover:rotate-12"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -209,7 +209,7 @@ export default function Resume() {
             </button>
             <button
               onClick={downloadResume}
-              className="group flex items-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:border-blue-200 hover:text-blue-700"
+              className="group flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-slate-700 shadow-sm transition-all hover:-translate-y-0.5 hover:border-accent-blue/50 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:text-white"
             >
               <svg
                 className="h-4 w-4"
@@ -232,42 +232,42 @@ export default function Resume() {
         {/* Experience Section */}
         {EXPERIENCE.length > 0 && (
           <div className="space-y-8">
-            <h3 className="text-lg font-semibold text-slate-900">
+            <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
               Work Experience
             </h3>
             <div className="space-y-8">
               {EXPERIENCE.map((exp, index) => (
               <article
                 key={index}
-                className="group relative rounded-xl bg-white p-6 shadow-sm"
+                className="group relative rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:border-accent-blue/30 dark:border-slate-800 dark:bg-slate-900/40"
               >
-                <div className="space-y-3">
-                  <div className="space-y-1">
-                    <h4 className="text-base font-semibold text-slate-900">
+                <div className="space-y-5">
+                  <div className="space-y-2">
+                    <h4 className="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-50">
                       {exp.title}
                     </h4>
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-                      <span className="font-medium text-blue-700">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-bold uppercase tracking-widest">
+                      <span className="text-accent-blue">
                         {exp.company}
                       </span>
-                      <span className="text-slate-400">•</span>
+                      <span className="text-slate-300 dark:text-slate-700">•</span>
                       <span className="text-slate-500">{exp.location}</span>
-                      <span className="text-slate-400">•</span>
+                      <span className="text-slate-300 dark:text-slate-700">•</span>
                       <span className="text-slate-500">{exp.duration}</span>
                     </div>
                   </div>
 
-                  <p className="text-sm leading-relaxed text-slate-600">
+                  <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                     {exp.description}
                   </p>
 
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {exp.achievements.map((achievement, i) => (
                       <li
                         key={i}
-                        className="flex items-start gap-3 text-sm text-slate-600"
+                        className="flex items-start gap-4 text-sm text-slate-500 dark:text-slate-400"
                       >
-                        <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600" />
+                        <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-blue/60" />
                         <span className="leading-relaxed">{achievement}</span>
                       </li>
                     ))}
@@ -281,43 +281,43 @@ export default function Resume() {
 
         {/* Education Section */}
         <div className="space-y-8">
-          <h3 className="text-lg font-semibold text-slate-900">Education</h3>
-          <div className="space-y-5">
+          <h3 className="text-sm font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">Education</h3>
+          <div className="space-y-6">
             {EDUCATION.map((edu, index) => (
               <article
                 key={index}
-                className="rounded-xl bg-white p-6 shadow-sm"
+                className="group relative rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:border-accent-blue/30 dark:border-slate-800 dark:bg-slate-900/40"
               >
-                <div className="space-y-3">
-                  <div className="space-y-1">
-                    <h4 className="text-base font-semibold text-slate-900">
+                <div className="space-y-5">
+                  <div className="space-y-2">
+                    <h4 className="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-50">
                       {edu.degree}
                     </h4>
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-                      <span className="font-medium text-blue-700">
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-bold uppercase tracking-widest">
+                      <span className="text-accent-blue">
                         {edu.institution}
                       </span>
-                      <span className="text-slate-400">•</span>
+                      <span className="text-slate-300 dark:text-slate-700">•</span>
                       <span className="text-slate-500">{edu.location}</span>
-                      <span className="text-slate-400">•</span>
+                      <span className="text-slate-300 dark:text-slate-700">•</span>
                       <span className="text-slate-500">{edu.duration}</span>
                     </div>
                   </div>
 
                   {edu.description && (
-                    <p className="text-sm leading-relaxed text-slate-600">
+                    <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                       {edu.description}
                     </p>
                   )}
 
                   {edu.achievements && edu.achievements.length > 0 && (
-                    <ul className="space-y-2">
+                    <ul className="space-y-3">
                       {edu.achievements.map((achievement, i) => (
                         <li
                           key={i}
-                          className="flex items-start gap-3 text-sm text-slate-600"
+                          className="flex items-start gap-4 text-sm text-slate-500 dark:text-slate-400"
                         >
-                          <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600" />
+                          <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-blue/60" />
                           <span className="leading-relaxed">{achievement}</span>
                         </li>
                       ))}

@@ -12,7 +12,7 @@ export default function GithubActivity() {
           title="Consistent, Deliberate Shipping"
           subtitle="A snapshot of recent activity. I value steady progress, maintainable systems, and thoughtful collaboration over noisy commits."
         />
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800/70 dark:bg-slate-950/60 dark:shadow-[0_0_0_1px_rgba(15,23,42,0.9)]">
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800/70 dark:bg-slate-900/40 dark:shadow-[0_0_0_1px_rgba(15,23,42,0.9)]">
           <div className="mb-4 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
             <span className="uppercase tracking-[0.2em]">GitHub streak</span>
             <a

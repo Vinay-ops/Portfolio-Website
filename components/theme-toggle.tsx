@@ -22,10 +22,10 @@ export function ThemeToggle() {
       type="button"
       aria-label="Toggle dark mode"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative flex h-9 w-16 items-center rounded-full border border-slate-700 bg-slate-900 px-1 text-xs font-medium text-slate-300 shadow-sm ring-0 transition-colors hover:border-accent-blue/70 hover:text-slate-50"
+      className="relative flex h-8 w-14 items-center rounded-full border border-slate-200 bg-slate-100 px-1 transition-all hover:border-accent-blue/50 dark:border-slate-800 dark:bg-slate-900"
     >
       <span
-        className={`pointer-events-none inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-900 shadow-glow transition-transform ${
+        className={`pointer-events-none flex h-6 w-6 items-center justify-center rounded-full bg-white text-[10px] shadow-sm transition-all dark:bg-accent-blue dark:text-slate-950 ${
           isDark ? "translate-x-0" : "translate-x-6"
         }`}
       >
