@@ -18,10 +18,10 @@ export const generateResumeHTML = () => {
   <title>Vinay Bhogal — Professional Resume</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
-    @page { margin: 0.4in; }
+    @page { margin: 0; size: auto; }
     html, body { margin: 0; padding: 0; background: #fff; color: #1a202c; -webkit-print-color-adjust: exact; }
-    body { font-family: 'Inter', sans-serif; line-height: 1.5; font-size: 11px; }
-    .container { max-width: 800px; margin: 0 auto; padding: 0.4in; }
+    body { font-family: 'Inter', sans-serif; line-height: 1.5; font-size: 11px; padding: 0.5in; }
+    .container { max-width: 800px; margin: 0 auto; }
 
     /* Header */
     .header { text-align: left; border-bottom: 2px solid #38bdf8; padding-bottom: 20px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: flex-end; }
@@ -149,10 +149,6 @@ export const generateResumeHTML = () => {
         `).join('')}
       </div>
     </section>
-
-    <div class="footer">
-      Generated via Portfolio Website • vinaybhogal.dev
-    </div>
   </div>
 </body>
 </html>`;
