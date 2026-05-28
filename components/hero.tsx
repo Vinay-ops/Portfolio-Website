@@ -72,51 +72,85 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 hidden flex-1 lg:block"
           >
-            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl dark:border-slate-800 dark:bg-slate-900">
-              <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-4 py-2 dark:border-slate-800 dark:bg-slate-900/50">
-                <div className="flex gap-1.5">
-                  <div className="h-3 w-3 rounded-full bg-red-400/80" />
-                  <div className="h-3 w-3 rounded-full bg-amber-400/80" />
-                  <div className="h-3 w-3 rounded-full bg-emerald-400/80" />
+            <div className="relative h-[500px] w-full">
+              {/* Code Terminal */}
+              <div className="absolute left-0 top-0 z-10 w-[85%] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl transition-all duration-500 hover:z-30 dark:border-slate-800 dark:bg-slate-900">
+                <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-4 py-2 dark:border-slate-800 dark:bg-slate-900/50">
+                  <div className="flex gap-1.5">
+                    <div className="h-3 w-3 rounded-full bg-red-400/80" />
+                    <div className="h-3 w-3 rounded-full bg-amber-400/80" />
+                    <div className="h-3 w-3 rounded-full bg-emerald-400/80" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">vinay_profile.kt</span>
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">vinay_profile.kt</span>
+                <div className="p-6 font-mono text-xs leading-relaxed">
+                  <div className="flex gap-4">
+                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">1</span>
+                    <p><span className="text-purple-500">class</span> <span className="text-blue-500">VinayBhogal</span> {"{"}</p>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">2</span>
+                    <p className="ml-4"><span className="text-purple-500">val</span> role = <span className="text-emerald-500">"Android & Full Stack"</span></p>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">3</span>
+                    <p className="ml-4"><span className="text-purple-500">val</span> year = <span className="text-emerald-500">"IT Student @ SAKEC"</span></p>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">4</span>
+                    <p className="ml-4"><span className="text-purple-500">val</span> skills = <span className="text-blue-500">listOf</span>(</p>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">5</span>
+                    <p className="ml-8"><span className="text-emerald-500">"Kotlin"</span>, <span className="text-emerald-500">"Compose"</span></p>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">6</span>
+                    <p className="ml-4">)</p>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">7</span>
+                    <p>{"}"}</p>
+                  </div>
+                </div>
+                <div className="border-t border-slate-100 bg-slate-50 px-4 py-1.5 dark:border-slate-800 dark:bg-slate-900/50">
+                  <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400">● Kotlin 1.9.0 | UTF-8</span>
+                </div>
               </div>
-              <div className="p-6 font-mono text-sm leading-relaxed">
-                <div className="flex gap-4">
-                  <span className="w-4 select-none text-slate-300 dark:text-slate-700">1</span>
-                  <p><span className="text-purple-500">class</span> <span className="text-blue-500">VinayBhogal</span> {"{"}</p>
+
+              {/* Mobile Mockup */}
+              <div className="absolute -bottom-4 -right-4 z-20 h-[420px] w-[210px] transform rounded-[3rem] border-[8px] border-slate-900 bg-slate-900 shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 hover:z-30 dark:border-slate-800 dark:bg-slate-800 dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                {/* Speaker/Notch */}
+                <div className="absolute left-1/2 top-0 h-5 w-24 -translate-x-1/2 rounded-b-2xl bg-slate-900 dark:bg-slate-800" />
+                
+                {/* Screen Content */}
+                <div className="h-full w-full overflow-hidden rounded-[2.5rem] bg-white dark:bg-slate-950">
+                  <div className="flex h-full flex-col">
+                    <div className="bg-accent-blue/10 p-4 pt-8 dark:bg-accent-blue/20">
+                      <div className="h-2 w-12 rounded-full bg-accent-blue/40" />
+                      <div className="mt-4 h-6 w-24 rounded-lg bg-accent-blue/20" />
+                    </div>
+                    <div className="flex-1 space-y-4 p-4">
+                      <div className="h-32 rounded-2xl bg-slate-100 dark:bg-slate-900" />
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="h-20 rounded-xl bg-slate-100 dark:bg-slate-900" />
+                        <div className="h-20 rounded-xl bg-slate-100 dark:bg-slate-900" />
+                      </div>
+                      <div className="h-4 w-full rounded-full bg-slate-50 dark:bg-slate-900" />
+                      <div className="h-4 w-[80%] rounded-full bg-slate-50 dark:bg-slate-900" />
+                    </div>
+                    {/* Bottom Nav Mock */}
+                    <div className="flex justify-around border-t border-slate-100 py-3 dark:border-slate-900">
+                      <div className="h-5 w-5 rounded-full bg-slate-200 dark:bg-slate-800" />
+                      <div className="h-5 w-5 rounded-full bg-accent-blue/40" />
+                      <div className="h-5 w-5 rounded-full bg-slate-200 dark:bg-slate-800" />
+                    </div>
+                  </div>
                 </div>
-                <div className="flex gap-4">
-                  <span className="w-4 select-none text-slate-300 dark:text-slate-700">2</span>
-                  <p className="ml-4"><span className="text-purple-500">val</span> role = <span className="text-emerald-500">"Android & Full Stack"</span></p>
-                </div>
-                <div className="flex gap-4">
-                  <span className="w-4 select-none text-slate-300 dark:text-slate-700">3</span>
-                  <p className="ml-4"><span className="text-purple-500">val</span> year = <span className="text-emerald-500">"IT Student @ SAKEC"</span></p>
-                </div>
-                <div className="flex gap-4">
-                  <span className="w-4 select-none text-slate-300 dark:text-slate-700">4</span>
-                  <p className="ml-4"><span className="text-purple-500">val</span> city = <span className="text-emerald-500">"Mumbai, India"</span></p>
-                </div>
-                <div className="flex gap-4">
-                  <span className="w-4 select-none text-slate-300 dark:text-slate-700">5</span>
-                  <p className="ml-4"><span className="text-purple-500">val</span> skills = <span className="text-blue-500">listOf</span>(</p>
-                </div>
-                <div className="flex gap-4">
-                  <span className="w-4 select-none text-slate-300 dark:text-slate-700">6</span>
-                  <p className="ml-8"><span className="text-emerald-500">"Kotlin"</span>, <span className="text-emerald-500">"Compose"</span>, <span className="text-emerald-500">"Flutter"</span></p>
-                </div>
-                <div className="flex gap-4">
-                  <span className="w-4 select-none text-slate-300 dark:text-slate-700">7</span>
-                  <p className="ml-4">)</p>
-                </div>
-                <div className="flex gap-4">
-                  <span className="w-4 select-none text-slate-300 dark:text-slate-700">8</span>
-                  <p>{"}"}</p>
-                </div>
-              </div>
-              <div className="border-t border-slate-100 bg-slate-50 px-4 py-2 dark:border-slate-800 dark:bg-slate-900/50">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">● Kotlin 1.9.0 | UTF-8</span>
+
+                {/* Side Buttons */}
+                <div className="absolute -left-[10px] top-24 h-12 w-[3px] rounded-r-sm bg-slate-800 dark:bg-slate-700" />
+                <div className="absolute -right-[10px] top-32 h-20 w-[3px] rounded-l-sm bg-slate-800 dark:bg-slate-700" />
               </div>
             </div>
           </motion.div>
