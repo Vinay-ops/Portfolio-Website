@@ -32,7 +32,7 @@ export default function Contact() {
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
             {[
-              { label: "Email", value: CONTACT.email, icon: "📧" },
+              { label: "Email", value: CONTACT.email, icon: "📧", href: `mailto:${CONTACT.email}` },
               { label: "Location", value: CONTACT.location, icon: "📍" },
               { label: "LinkedIn", value: "Vinay Bhogal", icon: "🔗", href: `https://${CONTACT.linkedin}` },
               { label: "GitHub", value: "@Vinay-ops", icon: "💻", href: `https://${CONTACT.github}` }
