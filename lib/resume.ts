@@ -30,7 +30,7 @@ export type SkillGroup = {
 
 export const CONTACT: Contact = {
   email: "vbhogal5@gmail.com",
-  location: "Mumbai, India",
+  location: "Thane, Maharashtra",
   linkedin: "linkedin.com/in/vinay-bhogal-78a623319",
   github: "github.com/Vinay-ops"
 };

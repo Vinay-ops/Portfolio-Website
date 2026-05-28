@@ -42,7 +42,7 @@ export default function About() {
           <div className="mt-8 space-y-4 sm:mt-0">
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/50">
               <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Location</p>
-              <p className="mt-2 text-sm font-semibold text-slate-700 dark:text-slate-200">Mumbai, India</p>
+              <p className="mt-2 text-sm font-semibold text-slate-700 dark:text-slate-200">Thane, Maharashtra</p>
             </div>
             <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/50">
               <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Status</p>
