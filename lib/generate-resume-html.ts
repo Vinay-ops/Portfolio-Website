@@ -35,8 +35,7 @@ export const generateResumeHTML = () => {
 
     /* Sections */
     .section { margin-bottom: 20px; }
-    .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; margin-bottom: 12px; display: flex; align-items: center; }
-    .section-title::after { content: ''; flex: 1; height: 1px; background: #e2e8f0; margin-left: 15px; }
+    .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; margin-bottom: 12px; }
 
     /* Summary */
     .summary { font-size: 11.5px; color: #334155; text-align: justify; line-height: 1.6; margin-bottom: 20px; }
