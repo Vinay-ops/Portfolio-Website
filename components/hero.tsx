@@ -72,85 +72,108 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative z-10 hidden flex-1 lg:block"
           >
-            <div className="relative h-[500px] w-full">
-              {/* Code Terminal */}
-              <div className="absolute left-0 top-0 z-10 w-[85%] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl transition-all duration-500 hover:z-30 dark:border-slate-800 dark:bg-slate-900">
-                <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-4 py-2 dark:border-slate-800 dark:bg-slate-900/50">
-                  <div className="flex gap-1.5">
-                    <div className="h-3 w-3 rounded-full bg-red-400/80" />
-                    <div className="h-3 w-3 rounded-full bg-amber-400/80" />
-                    <div className="h-3 w-3 rounded-full bg-emerald-400/80" />
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">vinay_profile.kt</span>
-                </div>
-                <div className="p-6 font-mono text-xs leading-relaxed">
-                  <div className="flex gap-4">
-                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">1</span>
-                    <p><span className="text-purple-500">class</span> <span className="text-blue-500">VinayBhogal</span> {"{"}</p>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">2</span>
-                    <p className="ml-4"><span className="text-purple-500">val</span> role = <span className="text-emerald-500">"Android & Full Stack"</span></p>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">3</span>
-                    <p className="ml-4"><span className="text-purple-500">val</span> year = <span className="text-emerald-500">"IT Student @ SAKEC"</span></p>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">4</span>
-                    <p className="ml-4"><span className="text-purple-500">val</span> skills = <span className="text-blue-500">listOf</span>(</p>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">5</span>
-                    <p className="ml-8"><span className="text-emerald-500">"Kotlin"</span>, <span className="text-emerald-500">"Compose"</span></p>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">6</span>
-                    <p className="ml-4">)</p>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="w-4 select-none text-slate-300 dark:text-slate-700">7</span>
-                    <p>{"}"}</p>
-                  </div>
-                </div>
-                <div className="border-t border-slate-100 bg-slate-50 px-4 py-1.5 dark:border-slate-800 dark:bg-slate-900/50">
-                  <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400">● Kotlin 1.9.0 | UTF-8</span>
-                </div>
-              </div>
-
-              {/* Mobile Mockup */}
-              <div className="absolute -bottom-4 -right-4 z-20 h-[420px] w-[210px] transform rounded-[3rem] border-[8px] border-slate-900 bg-slate-900 shadow-[0_20px_50px_rgba(0,0,0,0.3)] transition-all duration-500 hover:z-30 dark:border-slate-800 dark:bg-slate-800 dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-                {/* Speaker/Notch */}
-                <div className="absolute left-1/2 top-0 h-5 w-24 -translate-x-1/2 rounded-b-2xl bg-slate-900 dark:bg-slate-800" />
-                
-                {/* Screen Content */}
-                <div className="h-full w-full overflow-hidden rounded-[2.5rem] bg-white dark:bg-slate-950">
-                  <div className="flex h-full flex-col">
-                    <div className="bg-accent-blue/10 p-4 pt-8 dark:bg-accent-blue/20">
-                      <div className="h-2 w-12 rounded-full bg-accent-blue/40" />
-                      <div className="mt-4 h-6 w-24 rounded-lg bg-accent-blue/20" />
-                    </div>
-                    <div className="flex-1 space-y-4 p-4">
-                      <div className="h-32 rounded-2xl bg-slate-100 dark:bg-slate-900" />
-                      <div className="grid grid-cols-2 gap-3">
-                        <div className="h-20 rounded-xl bg-slate-100 dark:bg-slate-900" />
-                        <div className="h-20 rounded-xl bg-slate-100 dark:bg-slate-900" />
+            <div className="relative flex h-[500px] items-center justify-center">
+              {/* 3D-Style Mobile Mockup Container */}
+              <div className="relative h-[480px] w-[240px] perspective-1000">
+                <motion.div 
+                  animate={{ 
+                    rotateY: [-5, 5, -5],
+                    rotateX: [2, -2, 2],
+                    y: [0, -10, 0]
+                  }}
+                  transition={{ 
+                    duration: 6, 
+                    repeat: Infinity, 
+                    ease: "easeInOut" 
+                  }}
+                  className="relative h-full w-full preserve-3d"
+                >
+                  {/* Phone Body */}
+                  <div className="absolute inset-0 rounded-[3rem] border-[10px] border-slate-900 bg-slate-900 shadow-[20px_40px_60px_rgba(0,0,0,0.4)] dark:border-slate-800 dark:bg-slate-800 dark:shadow-[20px_40px_60px_rgba(0,0,0,0.6)]">
+                    {/* Screen Container */}
+                    <div className="h-full w-full overflow-hidden rounded-[2.5rem] bg-white dark:bg-slate-950">
+                      {/* Status Bar */}
+                      <div className="flex h-8 w-full items-end justify-between px-6 pb-1">
+                        <span className="text-[10px] font-bold text-slate-400">9:41</span>
+                        <div className="flex gap-1">
+                          <div className="h-2 w-2 rounded-full bg-slate-300 dark:bg-slate-700" />
+                          <div className="h-2 w-2 rounded-full bg-slate-300 dark:bg-slate-700" />
+                          <div className="h-2 w-4 rounded-full bg-slate-300 dark:bg-slate-700" />
+                        </div>
                       </div>
-                      <div className="h-4 w-full rounded-full bg-slate-50 dark:bg-slate-900" />
-                      <div className="h-4 w-[80%] rounded-full bg-slate-50 dark:bg-slate-900" />
-                    </div>
-                    {/* Bottom Nav Mock */}
-                    <div className="flex justify-around border-t border-slate-100 py-3 dark:border-slate-900">
-                      <div className="h-5 w-5 rounded-full bg-slate-200 dark:bg-slate-800" />
-                      <div className="h-5 w-5 rounded-full bg-accent-blue/40" />
-                      <div className="h-5 w-5 rounded-full bg-slate-200 dark:bg-slate-800" />
-                    </div>
-                  </div>
-                </div>
 
-                {/* Side Buttons */}
-                <div className="absolute -left-[10px] top-24 h-12 w-[3px] rounded-r-sm bg-slate-800 dark:bg-slate-700" />
-                <div className="absolute -right-[10px] top-32 h-20 w-[3px] rounded-l-sm bg-slate-800 dark:bg-slate-700" />
+                      {/* App Content: Pay Sahayak Mockup */}
+                      <div className="flex h-full flex-col">
+                        {/* Header */}
+                        <div className="bg-accent-blue p-6 pb-8 text-slate-950">
+                          <div className="mb-4 flex items-center justify-between">
+                            <div className="h-8 w-8 rounded-lg bg-white/20" />
+                            <div className="h-4 w-12 rounded-full bg-white/20" />
+                          </div>
+                          <p className="text-xs font-bold uppercase tracking-widest opacity-70">Welcome back</p>
+                          <h4 className="mt-1 text-lg font-bold">Pay Sahayak</h4>
+                        </div>
+
+                        {/* Quick Stats */}
+                        <div className="-mt-4 space-y-3 px-4">
+                          <div className="rounded-2xl bg-white p-4 shadow-lg dark:bg-slate-900">
+                            <div className="flex items-center gap-3">
+                              <div className="h-10 w-10 rounded-xl bg-accent-blue/10 text-xl flex items-center justify-center">💰</div>
+                              <div>
+                                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Total Savings</p>
+                                <p className="text-sm font-bold text-slate-900 dark:text-slate-100">₹12,450.00</p>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="grid grid-cols-2 gap-3">
+                            <div className="rounded-2xl bg-white p-4 shadow-md dark:bg-slate-900">
+                              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Streak</p>
+                              <p className="mt-1 text-sm font-bold text-accent-blue">12 Days</p>
+                            </div>
+                            <div className="rounded-2xl bg-white p-4 shadow-md dark:bg-slate-900">
+                              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Goal</p>
+                              <p className="mt-1 text-sm font-bold text-emerald-500">85%</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Recent Transactions */}
+                        <div className="mt-6 flex-1 px-4">
+                          <p className="mb-3 text-[10px] font-bold uppercase tracking-widest text-slate-400 px-1">Recent Activity</p>
+                          <div className="space-y-3">
+                            {[1, 2, 3].map((i) => (
+                              <div key={i} className="flex items-center gap-3 rounded-xl border border-slate-50 p-3 dark:border-slate-900">
+                                <div className="h-8 w-8 rounded-full bg-slate-100 dark:bg-slate-900" />
+                                <div className="flex-1">
+                                  <div className="h-2 w-16 rounded-full bg-slate-200 dark:bg-slate-800" />
+                                  <div className="mt-1.5 h-1.5 w-10 rounded-full bg-slate-100 dark:bg-slate-900" />
+                                </div>
+                                <div className="h-2 w-8 rounded-full bg-slate-100 dark:bg-slate-800" />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Bottom Navigation */}
+                        <div className="flex justify-around border-t border-slate-100 bg-white py-4 pb-8 dark:border-slate-900 dark:bg-slate-950">
+                          <div className="h-6 w-6 rounded-lg bg-accent-blue/20" />
+                          <div className="h-6 w-6 rounded-lg bg-slate-100 dark:bg-slate-900" />
+                          <div className="h-6 w-6 rounded-lg bg-slate-100 dark:bg-slate-900" />
+                          <div className="h-6 w-6 rounded-lg bg-slate-100 dark:bg-slate-900" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Hardware Details */}
+                    <div className="absolute left-1/2 top-0 h-5 w-24 -translate-x-1/2 rounded-b-2xl bg-slate-900 dark:bg-slate-800" />
+                    <div className="absolute -left-[10px] top-24 h-12 w-[3px] rounded-r-sm bg-slate-800 dark:bg-slate-700" />
+                    <div className="absolute -right-[10px] top-32 h-20 w-[3px] rounded-l-sm bg-slate-800 dark:bg-slate-700" />
+                  </div>
+                </motion.div>
+
+                {/* Background Glows for 3D effect */}
+                <div className="absolute -inset-10 -z-10 rounded-full bg-accent-blue/20 blur-3xl" />
               </div>
             </div>
           </motion.div>
