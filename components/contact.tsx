@@ -23,60 +23,53 @@ export default function Contact() {
 
   return (
     <Section id="contact">
-      <div className="grid gap-10 md:grid-cols-2">
-        <div>
-          <SectionHeading
-            title="Get in Touch"
-            subtitle="Currently available for freelance opportunities or full-time roles. Let's build something amazing together."
-          />
-          <div className="mt-8 space-y-3 text-sm text-slate-600">
-            <p>{CONTACT.email}</p>
-            <p>{CONTACT.location}</p>
-            <p>{CONTACT.linkedin}</p>
-            <p>{CONTACT.github}</p>
-          </div>
-        </div>
+      <div className="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1.1fr)] md:items-start">
+        <SectionHeading
+          eyebrow="Contact"
+          title="Let's Build Something Together"
+          subtitle="Currently available for freelance opportunities or full-time roles. Reach out via the form or my social links."
+        />
         <form
           onSubmit={handleSubmit}
-          className="rounded-xl bg-white p-6 shadow-sm"
+          className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800/70 dark:bg-slate-950/40 dark:shadow-[0_0_0_1px_rgba(15,23,42,0.9)]"
         >
           <div className="space-y-4">
-            <div>
-              <label
-                htmlFor="name"
-                className="mb-1 block text-xs font-semibold text-slate-700"
-              >
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                placeholder="Your Name"
-                className="w-full rounded-md bg-[#eef0fb] px-4 py-3 text-sm outline-none ring-blue-400 placeholder:text-slate-400 focus:ring-2"
-              />
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="space-y-1.5">
+                <label
+                  htmlFor="name"
+                  className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500"
+                >
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none ring-0 transition focus:border-accent-blue/50 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:focus:border-accent-blue/80 dark:focus:shadow-glow"
+                />
+              </div>
+              <div className="space-y-1.5">
+                <label
+                  htmlFor="email"
+                  className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500"
+                >
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none ring-0 transition focus:border-accent-blue/50 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:focus:border-accent-blue/80 dark:focus:shadow-glow"
+                />
+              </div>
             </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="mb-1 block text-xs font-semibold text-slate-700"
-              >
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                placeholder="email@example.com"
-                className="w-full rounded-md bg-[#eef0fb] px-4 py-3 text-sm outline-none ring-blue-400 placeholder:text-slate-400 focus:ring-2"
-              />
-            </div>
-            <div>
+            <div className="space-y-1.5">
               <label
                 htmlFor="message"
-                className="mb-1 block text-xs font-semibold text-slate-700"
+                className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500"
               >
                 Message
               </label>
@@ -85,21 +78,23 @@ export default function Contact() {
                 name="message"
                 required
                 rows={4}
-                placeholder="How can I help you?"
-                className="w-full resize-none rounded-md bg-[#eef0fb] px-4 py-3 text-sm outline-none ring-blue-400 placeholder:text-slate-400 focus:ring-2"
+                className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none ring-0 transition focus:border-accent-blue/50 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:focus:border-accent-blue/80 dark:focus:shadow-glow"
               />
             </div>
-            <button
-              type="submit"
-              disabled={formState !== "idle"}
-              className="w-full rounded-md bg-blue-700 px-6 py-3 text-sm font-semibold text-white transition enabled:hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {formState === "submitting"
-                ? "Sending..."
-                : formState === "submitted"
-                  ? "Message Sent"
-                  : "Send Message"}
-            </button>
+            <div className="mt-6 flex items-center justify-between gap-4">
+              <button
+                type="submit"
+                disabled={formState !== "idle"}
+                className="inline-flex flex-1 items-center justify-center rounded-full bg-accent-blue px-6 py-3 text-xs font-bold uppercase tracking-[0.18em] text-slate-950 shadow-sm transition enabled:hover:-translate-y-0.5 enabled:hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-60 dark:shadow-glow"
+              >
+                {formState === "submitting" ? "Sending" : "Send Message"}
+              </button>
+              {formState === "submitted" && (
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                  Message captured.
+                </p>
+              )}
+            </div>
           </div>
         </form>
       </div>
