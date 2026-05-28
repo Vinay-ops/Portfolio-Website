@@ -42,7 +42,7 @@ export const generateResumeHTML = () => {
     .summary { font-size: 11.5px; color: #334155; text-align: justify; line-height: 1.6; margin-bottom: 20px; }
 
     /* Entries */
-    .entry { margin-bottom: 15px; }
+    .entry { margin-bottom: 15px; break-inside: avoid; }
     .entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
     .entry-title { font-size: 12px; font-weight: 700; color: #0f172a; }
     .entry-date { font-size: 10px; font-weight: 600; color: #64748b; text-transform: uppercase; }
@@ -53,14 +53,14 @@ export const generateResumeHTML = () => {
     .bullets li::before { content: '•'; position: absolute; left: 0; color: #38bdf8; font-weight: bold; }
 
     /* Skills */
-    .skills-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .skill-item { display: flex; gap: 8px; }
+    .skills-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; break-inside: avoid; }
+    .skill-item { display: flex; gap: 8px; break-inside: avoid; }
     .skill-label { font-weight: 700; color: #0f172a; min-width: 90px; }
     .skill-values { color: #475569; }
 
     /* Projects */
     .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    .project-card { border: 1px solid #f1f5f9; padding: 10px; border-radius: 8px; background: #f8fafc; }
+    .project-card { border: 1px solid #f1f5f9; padding: 10px; border-radius: 8px; background: #f8fafc; break-inside: avoid; }
     .project-name { font-size: 11px; font-weight: 700; color: #0f172a; margin-bottom: 2px; }
     .project-tech { font-size: 9px; font-weight: 600; color: #38bdf8; text-transform: uppercase; margin-bottom: 5px; }
     .project-desc { font-size: 10px; color: #64748b; line-height: 1.4; }
