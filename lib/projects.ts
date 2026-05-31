@@ -42,4 +42,12 @@ export const PROJECTS: Project[] = [
     tech: ["Unity", "C#", "AI", "ShaderLab"],
     github: "https://github.com/Vinay-ops/Red-Light-Green-Light"
   }
+  ,
+  {
+    name: "LocalSathi (RailJet)",
+    description:
+      "Mumbai local train ticket booking app demonstrating end-to-end booking flow: station search, route comparison, fare calculation, seat selection, and QR-style ticket confirmation. Uses mock data and Provider-driven state management.",
+    tech: ["Flutter", "Dart", "Provider", "Shared Preferences", "QR Utilities"],
+    github: "https://github.com/Vinay-ops/LocalSathi"
+  }
 ];
