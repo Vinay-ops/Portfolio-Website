@@ -3,9 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import { PROJECTS, type Project } from '@/lib/projects';
 
+// Change this to your desired password
+const ADMIN_PASSWORD = "vinay123";
+
 export default function AdminPage() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [password, setPassword] = useState('');
   const [projects, setProjects] = useState<Project[]>(PROJECTS);
-  const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const [newProject, setNewProject] = useState<Project>({
     name: '',
     description: '',
@@ -13,6 +17,22 @@ export default function AdminPage() {
     github: '',
     live: '',
   });
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsLoggedIn(!!localStorage.getItem("isAdmin"));
+    }
+  }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (password === ADMIN_PASSWORD) {
+      localStorage.setItem("isAdmin", "true");
+      setIsLoggedIn(true);
+    } else {
+      alert("Incorrect password!");
+    }
+  };
 
   const updateProject = (index: number, field: keyof Project, value: any) => {
     const updatedProjects = [...projects];
@@ -75,6 +95,35 @@ ${projects.map(p => `  {
     URL.revokeObjectURL(url);
   };
 
+  if (!isLoggedIn) {
+    return (
+      <main className="min-h-screen bg-slate-50 dark:bg-[#0f0f14] flex items-center justify-center p-6">
+        <div className="max-w-md w-full bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-xl">
+          <h1 className="text-3xl font-bold text-center text-slate-900 dark:text-slate-50 mb-2">Admin Access</h1>
+          <p className="text-center text-slate-500 dark:text-slate-400 mb-8">Enter password to access admin panel</p>
+          <form onSubmit={handleLogin} className="space-y-4">
+            <input
+              type="password"
+              placeholder="Enter password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-slate-50 outline-none focus:border-accent-blue text-lg"
+            />
+            <button
+              type="submit"
+              className="w-full bg-accent-blue text-slate-950 px-6 py-3 rounded-xl font-bold hover:bg-sky-400 transition text-lg"
+            >
+              Unlock Admin Panel
+            </button>
+          </form>
+          <p className="text-center text-xs text-slate-400 dark:text-slate-500 mt-6">
+            Password is saved in your browser after first login
+          </p>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-slate-50 dark:bg-[#0f0f14] p-6 sm:p-10">
       <div className="max-w-7xl mx-auto">
@@ -83,12 +132,23 @@ ${projects.map(p => `  {
             <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-50">Admin Panel</h1>
             <p className="text-slate-500 dark:text-slate-400 mt-2">Edit your projects and export for your website</p>
           </div>
-          <button
-            onClick={exportProjects}
-            className="bg-accent-blue text-slate-950 px-6 py-3 rounded-full font-bold hover:bg-sky-400 transition"
-          >
-            📥 Export projects.ts
-          </button>
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => {
+                localStorage.removeItem("isAdmin");
+                setIsLoggedIn(false);
+              }}
+              className="text-slate-500 hover:text-red-500 font-medium text-sm"
+            >
+              Logout
+            </button>
+            <button
+              onClick={exportProjects}
+              className="bg-accent-blue text-slate-950 px-6 py-3 rounded-full font-bold hover:bg-sky-400 transition"
+            >
+              📥 Export projects.ts
+            </button>
+          </div>
         </div>
 
         <div className="grid gap-10">

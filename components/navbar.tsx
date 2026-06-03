@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const NAV_ITEMS = [
@@ -12,6 +13,14 @@ const NAV_ITEMS = [
 ];
 
 export default function Navbar() {
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsAdmin(!!localStorage.getItem("isAdmin"));
+    }
+  }, []);
+
   return (
     <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-xl dark:border-slate-800/50 dark:bg-[#0f0f14]/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
@@ -40,14 +49,16 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
-            <li>
-              <Link
-                href="/admin"
-                className="transition-colors hover:text-accent-blue dark:hover:text-accent-blue"
-              >
-                Admin
-              </Link>
-            </li>
+            {isAdmin && (
+              <li>
+                <Link
+                  href="/admin"
+                  className="transition-colors hover:text-accent-blue dark:hover:text-accent-blue"
+                >
+                  Admin
+                </Link>
+              </li>
+            )}
           </ul>
           <ThemeToggle />
         </nav>
