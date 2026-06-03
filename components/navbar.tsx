@@ -40,6 +40,14 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
+            <li>
+              <Link
+                href="/admin"
+                className="transition-colors hover:text-accent-blue dark:hover:text-accent-blue"
+              >
+                Admin
+              </Link>
+            </li>
           </ul>
           <ThemeToggle />
         </nav>
