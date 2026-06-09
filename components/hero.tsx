@@ -31,7 +31,7 @@ export default function Hero() {
             
             <h1 className="text-6xl font-black tracking-tight text-neo-black sm:text-7xl lg:text-8xl dark:text-neo-white">
               Vinay<br />
-              <span className="bg-neo-yellow px-3 dark:text-neo-black">Bhogal</span>
+              Bhogal
             </h1>
             
             <p className="mt-6 text-2xl font-bold text-neo-black sm:text-3xl dark:text-neo-white">

@@ -42,7 +42,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
   { category: "Languages", values: ["Java", "Kotlin", "Dart", "Python", "C#", "SQL"] },
   {
     category: "Frameworks",
-    values: ["Jetpack Compose", "Flutter", "React", "Node.js", "MVVM", "Provider"]
+    values: ["Jetpack Compose", "Flutter", "MVVM"]
   },
   {
     category: "Databases & Cloud",
@@ -50,7 +50,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
   },
   {
     category: "Developer Tools",
-    values: ["Android Studio", "VS Code", "Git", "GitHub", "Postman", "Unity"]
+    values: ["Android Studio", "VS Code", "Git", "GitHub", "Unity"]
   }
 ];
 
