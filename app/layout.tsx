@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vinay Bhogal | Developer Portfolio",
     description:
-      "Android app developer and full stack developer building fast, scalable digital systems."
+      "Android app developer building fast, scalable mobile applications."
   }
 };
 
 export default function RootLayout(props: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-[#0f1124] font-sans text-slate-900 antialiased selection:bg-blue-100 selection:text-slate-900">
+      <body className="min-h-screen bg-neo-white font-sans text-neo-black antialiased selection:bg-neo-yellow selection:text-neo-black dark:bg-neo-dark-bg dark:text-neo-white dark:selection:bg-neo-blue dark:selection:text-neo-black">
         <ThemeProvider>{props.children}</ThemeProvider>
       </body>
     </html>
