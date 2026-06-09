@@ -1,16 +1,19 @@
 import Link from "next/link";
-
-const SOCIAL_LINKS = [
-  { label: "LinkedIn", href: "https://linkedin.com/in/vinay-bhogal-78a623319", color: "bg-neo-blue" },
-  { label: "GitHub", href: "https://github.com/Vinay-ops", color: "bg-neo-yellow" }
-];
+import { CONTACT, SOCIAL_LINKS } from "@/lib/resume";
 
 export default function Footer() {
   return (
     <footer className="flex flex-col items-center justify-between gap-6 border-t-4 border-neo-black bg-neo-white px-8 py-10 dark:border-neo-white dark:bg-neo-dark-bg md:flex-row md:px-12">
-      <p className="text-3xl font-black text-neo-black dark:text-neo-white">Vinay Bhogal</p>
-      <p className="text-base font-bold text-neo-black dark:text-neo-white">&copy; {new Date().getFullYear()} Vinay Bhogal. All rights reserved.</p>
-      <div className="flex gap-4">
+      <div className="text-center md:text-left">
+        <p className="text-3xl font-black text-neo-black dark:text-neo-white">Vinay Bhogal</p>
+        <p className="mt-1 text-sm font-bold text-neo-black/70 dark:text-neo-white/70">
+          {CONTACT.location}
+        </p>
+      </div>
+      <p className="text-base font-bold text-neo-black dark:text-neo-white">
+        &copy; {new Date().getFullYear()} Vinay Bhogal. All rights reserved.
+      </p>
+      <div className="flex flex-wrap justify-center gap-3">
         {SOCIAL_LINKS.map((link) => (
           <Link
             key={link.label}

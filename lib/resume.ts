@@ -21,6 +21,13 @@ export type Contact = {
   location: string;
   linkedin: string;
   github: string;
+  leetcode: string;
+};
+
+export type SocialLink = {
+  label: string;
+  href: string;
+  display: string;
 };
 
 export type SkillGroup = {
@@ -30,10 +37,29 @@ export type SkillGroup = {
 
 export const CONTACT: Contact = {
   email: "vbhogal5@gmail.com",
-  location: "Mumbai, India",
+  location: "Thane, Maharashtra, India",
   linkedin: "linkedin.com/in/vinay-bhogal-78a623319",
-  github: "github.com/Vinay-ops"
+  github: "github.com/Vinay-ops",
+  leetcode: "leetcode.com/u/FKbLlOwmfm"
 };
+
+export const SOCIAL_LINKS: SocialLink[] = [
+  {
+    label: "GitHub",
+    href: `https://${CONTACT.github}`,
+    display: "@Vinay-ops"
+  },
+  {
+    label: "LinkedIn",
+    href: `https://${CONTACT.linkedin}`,
+    display: "Vinay Bhogal"
+  },
+  {
+    label: "LeetCode",
+    href: `https://${CONTACT.leetcode}`,
+    display: "@FKbLlOwmfm"
+  }
+];
 
 export const PROFESSIONAL_SUMMARY =
   "B.Tech Information Technology student focused on Android and Flutter development. I build production-style mobile apps with clean architecture, intuitive UX, and reliable data layers, and I am actively seeking software engineering internship opportunities.";
@@ -88,7 +114,7 @@ export const EXPERIENCE: Experience[] = [
   {
     title: "Independent Android & Flutter Developer",
     company: "Personal Projects",
-    location: "Mumbai, India",
+    location: "Thane, Maharashtra, India",
     duration: "2023 - Present",
     description:
       "Designing and building mobile products to solve real user problems, from planning and UI implementation to data persistence and release-ready polishing.",

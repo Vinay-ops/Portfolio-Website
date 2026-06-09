@@ -23,6 +23,7 @@ Email: ${CONTACT.email}
 Location: ${CONTACT.location}
 LinkedIn: ${CONTACT.linkedin}
 GitHub: ${CONTACT.github}
+LeetCode: ${CONTACT.leetcode}
 
 PROFESSIONAL SUMMARY
 --------------------------------------------------------------------------------

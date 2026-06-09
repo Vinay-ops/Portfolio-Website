@@ -3,7 +3,7 @@
 import { FormEvent, useState } from "react";
 import Section from "@/components/section";
 import SectionHeading from "@/components/section-heading";
-import { CONTACT } from "@/lib/resume";
+import { CONTACT, SOCIAL_LINKS } from "@/lib/resume";
 
 type FormState = "idle" | "submitting" | "submitted";
 
@@ -24,11 +24,15 @@ export default function Contact() {
   const contactItems = [
     { label: "Email", value: CONTACT.email, icon: "📧", href: `mailto:${CONTACT.email}` },
     { label: "Location", value: CONTACT.location, icon: "📍" },
-    { label: "LinkedIn", value: "Vinay Bhogal", icon: "🔗", href: `https://${CONTACT.linkedin}` },
-    { label: "GitHub", value: "@Vinay-ops", icon: "💻", href: `https://${CONTACT.github}` }
+    ...SOCIAL_LINKS.map((link) => ({
+      label: link.label,
+      value: link.display,
+      icon: link.label === "LeetCode" ? "🧩" : link.label === "GitHub" ? "💻" : "🔗",
+      href: link.href
+    }))
   ];
 
-  const colors = ["bg-neo-yellow", "bg-neo-blue", "bg-neo-pink", "bg-neo-green"];
+  const colors = ["bg-neo-yellow", "bg-neo-blue", "bg-neo-pink", "bg-neo-green", "bg-neo-purple"];
 
   return (
     <Section id="contact">

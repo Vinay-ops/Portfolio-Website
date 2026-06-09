@@ -56,23 +56,35 @@ export default function Hero() {
               </a>
             </div>
 
-            <div className="mt-14 flex items-center gap-8">
-              <a 
-                href="https://github.com/Vinay-ops" 
+            <div className="mt-14 flex flex-wrap items-center gap-6 sm:gap-8">
+              <a
+                href="https://github.com/Vinay-ops"
                 target="_blank"
+                rel="noreferrer"
                 className="group"
               >
-                <span className="text-xs font-black uppercase tracking-[0.3em] text-neo-black group-hover:text-neo-pink transition-colors dark:text-neo-white dark:group-hover:text-neo-blue">
+                <span className="text-xs font-black uppercase tracking-[0.3em] text-neo-black transition-colors group-hover:text-neo-pink dark:text-neo-white dark:group-hover:text-neo-blue">
                   GitHub
                 </span>
               </a>
-              <a 
-                href="https://linkedin.com/in/vinay-bhogal-78a623319" 
+              <a
+                href="https://linkedin.com/in/vinay-bhogal-78a623319"
                 target="_blank"
+                rel="noreferrer"
                 className="group"
               >
-                <span className="text-xs font-black uppercase tracking-[0.3em] text-neo-black group-hover:text-neo-blue transition-colors dark:text-neo-white dark:group-hover:text-neo-green">
+                <span className="text-xs font-black uppercase tracking-[0.3em] text-neo-black transition-colors group-hover:text-neo-blue dark:text-neo-white dark:group-hover:text-neo-green">
                   LinkedIn
+                </span>
+              </a>
+              <a
+                href="https://leetcode.com/u/FKbLlOwmfm/"
+                target="_blank"
+                rel="noreferrer"
+                className="group"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.3em] text-neo-black transition-colors group-hover:text-neo-yellow dark:text-neo-white dark:group-hover:text-neo-orange">
+                  LeetCode
                 </span>
               </a>
             </div>

@@ -1,41 +1,23 @@
-type SocialLink = {
-  label: string;
-  href: string;
-};
-
-const SOCIAL_LINKS: SocialLink[] = [
-  {
-    label: "GitHub",
-    href: "https://github.com/Vinay-ops"
-  },
-  {
-    label: "LinkedIn",
-    href: "https://linkedin.com/"
-  },
-  {
-    label: "Instagram",
-    href: "https://instagram.com/"
-  }
-];
+import { SOCIAL_LINKS } from "@/lib/resume";
 
 export default function SocialLinks() {
   return (
     <div className="flex flex-wrap gap-3">
-      {SOCIAL_LINKS.map((social) => (
-        <a
-          key={social.label}
-          href={social.href}
-          target="_blank"
-          rel="noreferrer"
-          className="group flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-slate-900/60 text-xs font-medium text-slate-200 transition-all hover:-translate-y-0.5 hover:border-accent-blue/80 hover:bg-slate-900 hover:text-white"
-          aria-label={social.label}
-        >
-          <span className="text-[11px] uppercase tracking-[0.16em]">
-            {social.label.charAt(0)}
-          </span>
-        </a>
-      ))}
+      {SOCIAL_LINKS.map((social, index) => {
+        const colors = ["bg-neo-yellow", "bg-neo-blue", "bg-neo-pink"];
+        return (
+          <a
+            key={social.label}
+            href={social.href}
+            target="_blank"
+            rel="noreferrer"
+            className={`neo-btn flex h-10 items-center justify-center border-4 border-neo-black px-3 text-[10px] font-black uppercase tracking-[0.16em] text-neo-black shadow-neo-sm dark:border-neo-white ${colors[index % colors.length]}`}
+            aria-label={social.label}
+          >
+            {social.label}
+          </a>
+        );
+      })}
     </div>
   );
 }
-

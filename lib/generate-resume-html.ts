@@ -78,7 +78,7 @@ export const generateResumeHTML = () => {
     </div>
     <h1 class="name">VINAY BHOGAL</h1>
     <div class="tagline">Android & Flutter Developer</div>
-    <div class="contact">${escape(CONTACT.email)} &nbsp; | &nbsp; ${escape(CONTACT.location)} &nbsp; | &nbsp; ${escape(CONTACT.linkedin)} &nbsp; | &nbsp; ${escape(CONTACT.github)}</div>
+    <div class="contact">${escape(CONTACT.email)} &nbsp; | &nbsp; ${escape(CONTACT.location)} &nbsp; | &nbsp; ${escape(CONTACT.linkedin)} &nbsp; | &nbsp; ${escape(CONTACT.github)} &nbsp; | &nbsp; ${escape(CONTACT.leetcode)}</div>
     <div class="summary">${escape(PROFESSIONAL_SUMMARY)}</div>
 
     <!-- Education -->
