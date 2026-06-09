@@ -30,27 +30,27 @@ export type SkillGroup = {
 
 export const CONTACT: Contact = {
   email: "vbhogal5@gmail.com",
-  location: "Thane, Maharashtra",
+  location: "Mumbai, India",
   linkedin: "linkedin.com/in/vinay-bhogal-78a623319",
   github: "github.com/Vinay-ops"
 };
 
 export const PROFESSIONAL_SUMMARY =
-  "B.Tech Information Technology student at SAKEC focused on Android, Flutter, and Full Stack development. I build production-ready mobile applications like Pay Sahayak and Best Buy Clone with clean architecture, intuitive UX, and robust data layers. Actively seeking software engineering internship opportunities to solve complex real-world problems.";
+  "B.Tech Information Technology student focused on Android and Flutter development. I build production-style mobile apps with clean architecture, intuitive UX, and reliable data layers, and I am actively seeking software engineering internship opportunities.";
 
 export const SKILL_GROUPS: SkillGroup[] = [
-  { category: "Languages", values: ["Java", "Kotlin", "Dart", "Python", "C#", "SQL"] },
+  { category: "Languages", values: ["Java", "Kotlin", "Dart", "Python", "C#"] },
   {
     category: "Frameworks",
-    values: ["Jetpack Compose", "Flutter", "MVVM"]
+    values: ["Jetpack Compose", "Flutter", "Material 3", "MVVM", "Coroutines"]
   },
   {
     category: "Databases & Cloud",
-    values: ["Firebase", "Room", "PostgreSQL", "MySQL", "Unity 3D"]
+    values: ["Firebase", "Room", "SQLite", "MySQL", "PostgreSQL"]
   },
   {
     category: "Developer Tools",
-    values: ["Android Studio", "VS Code", "Git", "GitHub", "Unity"]
+    values: ["Android Studio", "VS Code", "Git", "GitHub", "Postman"]
   }
 ];
 

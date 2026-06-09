@@ -21,91 +21,87 @@ export default function Contact() {
     }, 800);
   }
 
-  const contactItems = [
-    { label: "Email", value: CONTACT.email, icon: "📧", href: `mailto:${CONTACT.email}` },
-    { label: "Location", value: CONTACT.location, icon: "📍" },
-    { label: "LinkedIn", value: "Vinay Bhogal", icon: "🔗", href: `https://${CONTACT.linkedin}` },
-    { label: "GitHub", value: "@Vinay-ops", icon: "💻", href: `https://${CONTACT.github}` }
-  ];
-
-  const colors = ["bg-neo-yellow", "bg-neo-blue", "bg-neo-pink", "bg-neo-green"];
-
   return (
     <Section id="contact">
-      <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr]">
-        <div className="space-y-8">
+      <div className="grid gap-10 md:grid-cols-2">
+        <div>
           <SectionHeading
-            eyebrow="Let's Connect"
-            title="Open to Opportunities"
-            subtitle="Whether it's a mobile app project, internship opportunity, or a tech chat — I'd love to connect. Always open to learning and growing together."
+            title="Get in Touch"
+            subtitle="Currently available for freelance opportunities or full-time roles. Let's build something amazing together."
           />
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-            {contactItems.map((item, index) => (
-              <div key={item.label} className="neo-card flex items-center gap-4 border-4 border-neo-black bg-neo-white p-5 shadow-neo-md dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-md">
-                <div className={`flex h-14 w-14 items-center justify-center border-4 border-neo-black ${colors[index % colors.length]} text-2xl shadow-neo-sm dark:border-neo-white`}>
-                  {item.icon}
-                </div>
-                <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">{item.label}</p>
-                  {item.href ? (
-                    <a href={item.href} target="_blank" className="text-lg font-black text-neo-pink hover:text-neo-blue transition-colors dark:text-neo-blue dark:hover:text-neo-green">
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="text-lg font-black text-neo-black dark:text-neo-white">{item.value}</p>
-                  )}
-                </div>
-              </div>
-            ))}
+          <div className="mt-8 space-y-3 text-sm text-slate-600">
+            <p>{CONTACT.email}</p>
+            <p>{CONTACT.location}</p>
+            <p>{CONTACT.linkedin}</p>
+            <p>{CONTACT.github}</p>
           </div>
         </div>
-
-        <div className="neo-card border-4 border-neo-black bg-neo-white p-8 shadow-neo-lg dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-lg">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid gap-6 sm:grid-cols-2">
-              <div className="space-y-3">
-                <label htmlFor="name" className="text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">Name</label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  placeholder="Your Name"
-                  className="w-full border-4 border-neo-black bg-neo-white px-5 py-4 text-base font-bold text-neo-black outline-none focus:bg-neo-yellow dark:border-neo-white dark:bg-neo-dark-card dark:text-neo-white dark:focus:bg-neo-blue dark:focus:text-neo-black"
-                />
-              </div>
-              <div className="space-y-3">
-                <label htmlFor="email" className="text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">Email</label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="hello@example.com"
-                  className="w-full border-4 border-neo-black bg-neo-white px-5 py-4 text-base font-bold text-neo-black outline-none focus:bg-neo-blue dark:border-neo-white dark:bg-neo-dark-card dark:text-neo-white dark:focus:bg-neo-yellow dark:focus:text-neo-black"
-                />
-              </div>
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-xl bg-white p-6 shadow-sm"
+        >
+          <div className="space-y-4">
+            <div>
+              <label
+                htmlFor="name"
+                className="mb-1 block text-xs font-semibold text-slate-700"
+              >
+                Name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                placeholder="Your Name"
+                className="w-full rounded-md bg-[#eef0fb] px-4 py-3 text-sm outline-none ring-blue-400 placeholder:text-slate-400 focus:ring-2"
+              />
             </div>
-            <div className="space-y-3">
-              <label htmlFor="message" className="text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">Message</label>
+            <div>
+              <label
+                htmlFor="email"
+                className="mb-1 block text-xs font-semibold text-slate-700"
+              >
+                Email
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="email@example.com"
+                className="w-full rounded-md bg-[#eef0fb] px-4 py-3 text-sm outline-none ring-blue-400 placeholder:text-slate-400 focus:ring-2"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="message"
+                className="mb-1 block text-xs font-semibold text-slate-700"
+              >
+                Message
+              </label>
               <textarea
                 id="message"
                 name="message"
                 required
-                rows={5}
-                placeholder="Tell me about your project..."
-                className="w-full resize-none border-4 border-neo-black bg-neo-white px-5 py-4 text-base font-bold text-neo-black outline-none focus:bg-neo-green dark:border-neo-white dark:bg-neo-dark-card dark:text-neo-white dark:focus:bg-neo-pink dark:focus:text-neo-black"
+                rows={4}
+                placeholder="How can I help you?"
+                className="w-full resize-none rounded-md bg-[#eef0fb] px-4 py-3 text-sm outline-none ring-blue-400 placeholder:text-slate-400 focus:ring-2"
               />
             </div>
             <button
               type="submit"
               disabled={formState !== "idle"}
-              className="neo-btn flex w-full items-center justify-center border-4 border-neo-black bg-neo-pink px-8 py-5 text-sm font-black uppercase tracking-[0.3em] text-neo-black shadow-neo-md disabled:opacity-50 dark:border-neo-white"
+              className="w-full rounded-md bg-blue-700 px-6 py-3 text-sm font-semibold text-white transition enabled:hover:bg-blue-800 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {formState === "submitting" ? "Sending..." : formState === "submitted" ? "Message Sent! ✨" : "Send Message"}
+              {formState === "submitting"
+                ? "Sending..."
+                : formState === "submitted"
+                  ? "Message Sent"
+                  : "Send Message"}
             </button>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </Section>
   );

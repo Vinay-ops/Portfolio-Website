@@ -154,7 +154,7 @@ const printResume = () => {
 export default function Resume() {
   return (
     <Section id="resume">
-      <div className="grid gap-12">
+      <div className="grid gap-10">
         <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
           <SectionHeading
             eyebrow="Resume"
@@ -165,7 +165,7 @@ export default function Resume() {
             <button
               onClick={printResume}
               title="Print resume"
-              className="neo-btn group flex items-center gap-2 border-4 border-neo-black bg-neo-yellow px-5 py-3 text-xs font-black uppercase tracking-[0.2em] text-neo-black shadow-neo-sm dark:border-neo-white"
+              className="group flex items-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-blue-200 hover:text-blue-700"
             >
               <svg
                 className="h-5 w-5 transition-transform group-hover:scale-110"
@@ -184,7 +184,7 @@ export default function Resume() {
             </button>
             <button
               onClick={previewResume}
-              className="neo-btn group flex items-center gap-2 border-4 border-neo-black bg-neo-blue px-5 py-3 text-xs font-black uppercase tracking-[0.2em] text-neo-black shadow-neo-sm dark:border-neo-white"
+              className="group flex items-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:border-blue-200 hover:text-blue-700"
             >
               <svg
                 className="h-5 w-5 transition-transform group-hover:rotate-12"
@@ -209,10 +209,10 @@ export default function Resume() {
             </button>
             <button
               onClick={downloadResume}
-              className="neo-btn group flex items-center gap-2 border-4 border-neo-black bg-neo-green px-5 py-3 text-xs font-black uppercase tracking-[0.2em] text-neo-black shadow-neo-sm dark:border-neo-white"
+              className="group flex items-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:border-blue-200 hover:text-blue-700"
             >
               <svg
-                className="h-5 w-5"
+                className="h-4 w-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -229,107 +229,103 @@ export default function Resume() {
           </div>
         </div>
 
+        {/* Experience Section */}
         {EXPERIENCE.length > 0 && (
           <div className="space-y-8">
-            <h3 className="text-sm font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">
+            <h3 className="text-lg font-semibold text-slate-900">
               Work Experience
             </h3>
-            <div className="space-y-6">
-              {EXPERIENCE.map((exp, index) => {
-                const colors = ["bg-neo-yellow", "bg-neo-blue", "bg-neo-pink", "bg-neo-green"];
-                return (
-                  <article
-                    key={index}
-                    className="neo-card border-4 border-neo-black bg-neo-white p-8 shadow-neo-md dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-md"
-                  >
-                    <div className="space-y-5">
-                      <div className="space-y-3">
-                        <h4 className="text-xl font-black tracking-tight text-neo-black dark:text-neo-white">
-                          {exp.title}
-                        </h4>
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-black uppercase tracking-[0.2em]">
-                          <span className={`inline-block border-3 border-neo-black ${colors[index % colors.length]} px-3 py-1 dark:border-neo-white`}>
-                            {exp.company}
-                          </span>
-                          <span className="text-neo-black dark:text-neo-white">•</span>
-                          <span className="text-neo-black dark:text-neo-white">{exp.location}</span>
-                          <span className="text-neo-black dark:text-neo-white">•</span>
-                          <span className="text-neo-black dark:text-neo-white">{exp.duration}</span>
-                        </div>
-                      </div>
-
-                      <p className="text-sm font-bold text-neo-black dark:text-neo-white">
-                        {exp.description}
-                      </p>
-
-                      <ul className="space-y-3">
-                        {exp.achievements.map((achievement, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start gap-4 text-sm font-bold text-neo-black dark:text-neo-white"
-                          >
-                            <span className="mt-2 h-2 w-2 flex-shrink-0 border-2 border-neo-black bg-neo-pink dark:border-neo-white"></span>
-                            <span className="leading-relaxed">{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
+            <div className="space-y-8">
+              {EXPERIENCE.map((exp, index) => (
+              <article
+                key={index}
+                className="group relative rounded-xl bg-white p-6 shadow-sm"
+              >
+                <div className="space-y-3">
+                  <div className="space-y-1">
+                    <h4 className="text-base font-semibold text-slate-900">
+                      {exp.title}
+                    </h4>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                      <span className="font-medium text-blue-700">
+                        {exp.company}
+                      </span>
+                      <span className="text-slate-400">•</span>
+                      <span className="text-slate-500">{exp.location}</span>
+                      <span className="text-slate-400">•</span>
+                      <span className="text-slate-500">{exp.duration}</span>
                     </div>
-                  </article>
-                );
-              })}
-            </div>
+                  </div>
+
+                  <p className="text-sm leading-relaxed text-slate-600">
+                    {exp.description}
+                  </p>
+
+                  <ul className="space-y-2">
+                    {exp.achievements.map((achievement, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-3 text-sm text-slate-600"
+                      >
+                        <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600" />
+                        <span className="leading-relaxed">{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
           </div>
+        </div>
         )}
 
+        {/* Education Section */}
         <div className="space-y-8">
-          <h3 className="text-sm font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">Education</h3>
-          <div className="space-y-6">
-            {EDUCATION.map((edu, index) => {
-              const colors = ["bg-neo-purple", "bg-neo-orange", "bg-neo-yellow", "bg-neo-green"];
-              return (
-                <article
-                  key={index}
-                  className="neo-card border-4 border-neo-black bg-neo-white p-8 shadow-neo-md dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-md"
-                >
-                  <div className="space-y-5">
-                    <div className="space-y-3">
-                      <h4 className="text-xl font-black tracking-tight text-neo-black dark:text-neo-white">
-                        {edu.degree}
-                      </h4>
-                      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-black uppercase tracking-[0.2em]">
-                        <span className={`inline-block border-3 border-neo-black ${colors[index % colors.length]} px-3 py-1 dark:border-neo-white`}>
-                          {edu.institution}
-                        </span>
-                        <span className="text-neo-black dark:text-neo-white">•</span>
-                        <span className="text-neo-black dark:text-neo-white">{edu.location}</span>
-                        <span className="text-neo-black dark:text-neo-white">•</span>
-                        <span className="text-neo-black dark:text-neo-white">{edu.duration}</span>
-                      </div>
+          <h3 className="text-lg font-semibold text-slate-900">Education</h3>
+          <div className="space-y-5">
+            {EDUCATION.map((edu, index) => (
+              <article
+                key={index}
+                className="rounded-xl bg-white p-6 shadow-sm"
+              >
+                <div className="space-y-3">
+                  <div className="space-y-1">
+                    <h4 className="text-base font-semibold text-slate-900">
+                      {edu.degree}
+                    </h4>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
+                      <span className="font-medium text-blue-700">
+                        {edu.institution}
+                      </span>
+                      <span className="text-slate-400">•</span>
+                      <span className="text-slate-500">{edu.location}</span>
+                      <span className="text-slate-400">•</span>
+                      <span className="text-slate-500">{edu.duration}</span>
                     </div>
-
-                    {edu.description && (
-                      <p className="text-sm font-bold text-neo-black dark:text-neo-white">
-                        {edu.description}
-                      </p>
-                    )}
-
-                    {edu.achievements && edu.achievements.length > 0 && (
-                      <ul className="space-y-3">
-                        {edu.achievements.map((achievement, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start gap-4 text-sm font-bold text-neo-black dark:text-neo-white"
-                          >
-                            <span className="mt-2 h-2 w-2 flex-shrink-0 border-2 border-neo-black bg-neo-blue dark:border-neo-white"></span>
-                            <span className="leading-relaxed">{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
                   </div>
-                </article>
-              );
-            })}
+
+                  {edu.description && (
+                    <p className="text-sm leading-relaxed text-slate-600">
+                      {edu.description}
+                    </p>
+                  )}
+
+                  {edu.achievements && edu.achievements.length > 0 && (
+                    <ul className="space-y-2">
+                      {edu.achievements.map((achievement, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-3 text-sm text-slate-600"
+                        >
+                          <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-600" />
+                          <span className="leading-relaxed">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </div>

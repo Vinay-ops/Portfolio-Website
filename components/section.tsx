@@ -11,13 +11,16 @@ type SectionProps = {
 
 export default function Section(props: SectionProps) {
   return (
-    <section id={props.id} className="bg-neo-white py-24 dark:bg-neo-dark-bg">
+    <section
+      id={props.id}
+      className={`border-t border-slate-200 ${props.className ?? ""}`}
+    >
       <motion.div
-        initial={{ opacity: 0, y: 32 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8"
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="px-8 py-16 md:px-12"
       >
         {props.children}
       </motion.div>
