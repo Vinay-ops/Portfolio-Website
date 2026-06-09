@@ -27,7 +27,7 @@ export default function Contact() {
         <div>
           <SectionHeading
             title="Get in Touch"
-            subtitle="Currently available for freelance opportunities or full-time roles. Let's build something amazing together."
+            subtitle="Currently available for freelance opportunities or full-time roles. Let&apos;s build something amazing together."
           />
           <div className="mt-8 space-y-3 text-sm text-slate-600">
             <p>{CONTACT.email}</p>

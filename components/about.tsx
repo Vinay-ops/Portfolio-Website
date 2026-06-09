@@ -16,7 +16,7 @@ export default function About() {
             {PROFESSIONAL_SUMMARY}
           </p>
           <p className="mt-4 text-[15px] leading-7 text-slate-600">
-            I specialize in Android development and full stack systems where the
+            I specialize in Android development and mobile applications where the
             details matter. From designing APIs and data models to tuning
             rendering on low-end devices, I focus on the invisible layers that
             make products feel fast, stable, and considered.

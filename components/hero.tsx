@@ -14,13 +14,13 @@ export default function Hero() {
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       >
         <p className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-700">
-          Android &bull; Full Stack
+          Android &bull; Flutter
         </p>
         <h1 className="text-4xl font-bold leading-tight text-slate-900 sm:text-5xl">
           Vinay <span className="text-blue-700">Bhogal</span>
         </h1>
         <p className="mt-4 text-lg font-medium text-slate-700">
-          Android App Developer and Full Stack Developer
+          Android App Developer
         </p>
         <p className="mt-5 max-w-lg text-base leading-7 text-slate-600">
           I build fast, scalable digital systems that feel effortless to use.

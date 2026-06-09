@@ -270,7 +270,7 @@ ${projects.map(p => `  {
           <h3 className="font-black text-neo-black mb-2 text-lg">💡 How it works</h3>
           <ol className="list-decimal ml-5 text-neo-black space-y-2 font-bold">
             <li>Add, edit, or delete projects in the form above</li>
-            <li>Click <strong>"📥 Export projects.ts"</strong> to download the updated file</li>
+            <li>Click <strong>&quot;📥 Export projects.ts&quot;</strong> to download the updated file</li>
             <li>Replace the <code className="bg-neo-white border-2 border-neo-black px-2 py-1">lib/projects.ts</code> file in your project with the new one</li>
             <li>Commit and push to GitHub</li>
             <li>Vercel will automatically redeploy your website!</li>

@@ -65,7 +65,7 @@ export const EDUCATION: Education[] = [
     achievements: [
       "Building end-to-end mobile applications as project-based practical work",
       "Applying modern Android and Flutter patterns in independent projects",
-      "Strengthening system design and API integration fundamentals"
+      "Strengthening API integration and mobile architecture fundamentals"
     ]
   },
   {

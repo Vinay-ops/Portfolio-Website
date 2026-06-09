@@ -6,12 +6,12 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Vinay Bhogal | Developer Portfolio",
   description:
-    "Android app developer and full stack developer building fast, scalable digital systems that feel effortless to use.",
+    "Android app developer building fast, scalable mobile applications that feel effortless to use.",
   metadataBase: new URL("https://vinaybhogal.dev"),
   openGraph: {
     title: "Vinay Bhogal | Developer Portfolio",
     description:
-      "Android app developer and full stack developer building fast, scalable digital systems.",
+      "Android app developer building fast, scalable mobile applications.",
     url: "https://vinaybhogal.dev",
     type: "website"
   },
