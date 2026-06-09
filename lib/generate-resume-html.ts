@@ -18,7 +18,7 @@ export const generateResumeHTML = () => {
   <title>Vinay Bhogal — Professional Resume</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
-    @page { size: letter; margin: 0.45in; }
+    @page { size: letter; margin: 0.35in; }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; background: #fff; color: #1a202c; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     body { font-family: 'Inter', sans-serif; line-height: 1.55; font-size: 11px; }
@@ -52,14 +52,24 @@ export const generateResumeHTML = () => {
     .skill-label { font-weight: 700; color: #0f172a; min-width: 118px; flex-shrink: 0; }
     .skill-values { color: #475569; }
 
-    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; break-inside: avoid; page-break-inside: avoid; }
-    .project-card { border: 1px solid #e2e8f0; padding: 10px 11px; border-radius: 8px; background: #f8fafc; break-inside: avoid; page-break-inside: avoid; min-height: 88px; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .project-card { border: 1px solid #e2e8f0; padding: 10px 11px; border-radius: 8px; background: #f8fafc; min-height: 88px; }
     .project-name { font-size: 11px; font-weight: 700; color: #0f172a; margin-bottom: 3px; }
     .project-tech { font-size: 9px; font-weight: 600; color: #38bdf8; text-transform: uppercase; margin-bottom: 6px; line-height: 1.45; }
     .project-desc { font-size: 10px; color: #64748b; line-height: 1.5; }
 
     @media print {
-      body { font-size: 11px; }
+      body { font-size: 10.5px; }
+      .header { padding-bottom: 12px; margin-bottom: 14px; }
+      .summary { margin-bottom: 14px; }
+      .section { margin-bottom: 14px; }
+      .section-title { margin-bottom: 10px; padding-bottom: 4px; }
+      .entry { margin-bottom: 10px; }
+      .entry-sub { margin-bottom: 4px; }
+      .bullets li { margin-bottom: 3px; }
+      .projects-grid { gap: 10px; break-inside: auto; page-break-inside: auto; }
+      .project-card { padding: 9px 10px; min-height: 0; break-inside: auto; page-break-inside: auto; }
+      .project-desc { font-size: 9.5px; line-height: 1.45; }
       .section:last-child { margin-bottom: 0; }
     }
   </style>
