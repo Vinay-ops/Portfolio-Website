@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-slate-50 text-slate-900 font-sans antialiased selection:bg-accent-blue/20 selection:text-slate-900 dark:bg-background dark:text-slate-100">
+      <body className="min-h-screen bg-neo-white text-neo-black font-sans antialiased selection:bg-neo-yellow selection:text-neo-black dark:bg-neo-dark-bg dark:text-neo-white dark:selection:bg-neo-blue dark:selection:text-neo-black">
         <ThemeProvider>{props.children}</ThemeProvider>
       </body>
     </html>

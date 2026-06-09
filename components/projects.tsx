@@ -11,49 +11,55 @@ export default function Projects() {
           title="Real Projects"
           subtitle="A selection of work spanning mobile applications, full-stack systems, and game development."
         />
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {PROJECTS.map((project) => (
-            <article
-              key={project.name}
-              className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent-blue/50 hover:shadow-md dark:border-slate-800/70 dark:bg-slate-900/40 dark:shadow-[0_0_0_1px_rgba(15,23,42,0.9)] dark:hover:border-accent-blue/70 dark:hover:shadow-glow"
-            >
-              <div>
-                <div className="mb-4 flex items-center justify-between">
-                  <div className="flex gap-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {PROJECTS.map((project, index) => {
+            const colors = ["bg-neo-yellow", "bg-neo-blue", "bg-neo-pink", "bg-neo-green", "bg-neo-purple", "bg-neo-orange"];
+            return (
+              <article
+                key={project.name}
+                className="neo-card flex flex-col justify-between border-4 border-neo-black bg-neo-white p-6 shadow-neo-md dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-md"
+              >
+                <div>
+                  <div className="mb-4 flex items-center justify-between">
+                    <div className={`inline-block border-3 border-neo-black ${colors[index % colors.length]} px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-neo-black shadow-neo-sm dark:border-neo-white`}>
+                      {project.tech[0] || "PROJECT"}
+                    </div>
                     {project.live && (
-                      <span className="flex h-2 w-2 rounded-full bg-emerald-500" />
+                      <div className="flex h-4 w-4 items-center justify-center">
+                        <div className="h-3 w-3 rounded-full bg-neo-green border-2 border-neo-black dark:border-neo-white"></div>
+                      </div>
                     )}
                   </div>
+                  <h3 className="text-xl font-black tracking-tight text-neo-black dark:text-neo-white">
+                    {project.name}
+                  </h3>
+                  <p className="mt-4 text-sm font-bold text-neo-black dark:text-neo-white">
+                    {project.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.tech.map((item, i) => (
+                      <span
+                        key={item}
+                        className="inline-block border-2 border-neo-black bg-neo-white px-2 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-neo-black dark:border-neo-white dark:bg-neo-dark-card dark:text-neo-white"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold tracking-tight text-slate-900 dark:text-slate-50">
-                  {project.name}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-                  {project.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tech.map((item) => (
-                    <span
-                      key={item}
-                      className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500"
-                    >
-                      {item}
-                    </span>
-                  ))}
+                <div className="mt-8">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="neo-btn flex w-full items-center justify-center border-4 border-neo-black bg-neo-yellow px-6 py-4 text-xs font-black uppercase tracking-[0.3em] text-neo-black shadow-neo-sm dark:border-neo-white"
+                  >
+                    View on GitHub →
+                  </a>
                 </div>
-              </div>
-              <div className="mt-8">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex w-full items-center justify-center rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-bold uppercase tracking-widest text-slate-600 transition-colors hover:border-accent-blue/70 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400 dark:hover:text-white"
-                >
-                  View on GitHub
-                </a>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </div>
     </Section>

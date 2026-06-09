@@ -13,3 +13,71 @@ body {
 * {
   box-sizing: border-box;
 }
+
+@layer utilities {
+  .neo-grid-bg {
+    background-image: radial-gradient(circle, #111111 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .dark .neo-grid-bg {
+    background-image: radial-gradient(circle, #444444 1px, transparent 1px);
+  }
+  
+  .neo-dotted-bg {
+    background-image: radial-gradient(circle, #111111 1.5px, transparent 1.5px);
+    background-size: 12px 12px;
+  }
+  
+  .dark .neo-dotted-bg {
+    background-image: radial-gradient(circle, #444444 1.5px, transparent 1.5px);
+  }
+  
+  .floating-shape {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .floating-shape-delay-1 {
+    animation: float 7s ease-in-out 1s infinite;
+  }
+  
+  .floating-shape-delay-2 {
+    animation: float 5s ease-in-out 0.5s infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+  }
+  
+  .neo-card {
+    transition: all 0.2s ease;
+  }
+  
+  .neo-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0px 0px #111111;
+  }
+  
+  .dark .neo-card:hover {
+    box-shadow: 2px 2px 0px 0px #000000;
+  }
+  
+  .neo-btn {
+    transition: all 0.15s ease;
+  }
+  
+  .neo-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0px 0px #111111;
+  }
+  
+  .dark .neo-btn:hover {
+    box-shadow: 2px 2px 0px 0px #000000;
+  }
+  
+  .neo-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+}

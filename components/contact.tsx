@@ -21,6 +21,15 @@ export default function Contact() {
     }, 800);
   }
 
+  const contactItems = [
+    { label: "Email", value: CONTACT.email, icon: "📧", href: `mailto:${CONTACT.email}` },
+    { label: "Location", value: CONTACT.location, icon: "📍" },
+    { label: "LinkedIn", value: "Vinay Bhogal", icon: "🔗", href: `https://${CONTACT.linkedin}` },
+    { label: "GitHub", value: "@Vinay-ops", icon: "💻", href: `https://${CONTACT.github}` }
+  ];
+
+  const colors = ["bg-neo-yellow", "bg-neo-blue", "bg-neo-pink", "bg-neo-green"];
+
   return (
     <Section id="contact">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr]">
@@ -31,24 +40,19 @@ export default function Contact() {
             subtitle="Whether it's a mobile app project, internship opportunity, or a tech chat — I'd love to connect. Always open to learning and growing together."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-            {[
-              { label: "Email", value: CONTACT.email, icon: "📧", href: `mailto:${CONTACT.email}` },
-              { label: "Location", value: CONTACT.location, icon: "📍" },
-              { label: "LinkedIn", value: "Vinay Bhogal", icon: "🔗", href: `https://${CONTACT.linkedin}` },
-              { label: "GitHub", value: "@Vinay-ops", icon: "💻", href: `https://${CONTACT.github}` }
-            ].map((item) => (
-              <div key={item.label} className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50/50 p-4 dark:border-slate-800 dark:bg-slate-900/50">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-lg shadow-sm dark:bg-slate-800">
+            {contactItems.map((item, index) => (
+              <div key={item.label} className="neo-card flex items-center gap-4 border-4 border-neo-black bg-neo-white p-5 shadow-neo-md dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-md">
+                <div className={`flex h-14 w-14 items-center justify-center border-4 border-neo-black ${colors[index % colors.length]} text-2xl shadow-neo-sm dark:border-neo-white`}>
                   {item.icon}
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{item.label}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">{item.label}</p>
                   {item.href ? (
-                    <a href={item.href} target="_blank" className="text-sm font-semibold text-slate-700 hover:text-accent-blue dark:text-slate-200">
+                    <a href={item.href} target="_blank" className="text-lg font-black text-neo-pink hover:text-neo-blue transition-colors dark:text-neo-blue dark:hover:text-neo-green">
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">{item.value}</p>
+                    <p className="text-lg font-black text-neo-black dark:text-neo-white">{item.value}</p>
                   )}
                 </div>
               </div>
@@ -56,51 +60,49 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl dark:border-slate-800 dark:bg-slate-900/40">
+        <div className="neo-card border-4 border-neo-black bg-neo-white p-8 shadow-neo-lg dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-lg">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid gap-6 sm:grid-cols-2">
-              <div className="space-y-2">
-                <label htmlFor="name" className="text-xs font-bold uppercase tracking-widest text-slate-400">Name</label>
+              <div className="space-y-3">
+                <label htmlFor="name" className="text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">Name</label>
                 <input
                   id="name"
                   name="name"
                   type="text"
                   required
                   placeholder="Your Name"
-                  className="w-full rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4 text-sm text-slate-900 outline-none transition-all focus:border-accent-blue/50 focus:bg-white dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-100 dark:focus:border-accent-blue/50 dark:focus:bg-slate-900"
+                  className="w-full border-4 border-neo-black bg-neo-white px-5 py-4 text-base font-bold text-neo-black outline-none focus:bg-neo-yellow dark:border-neo-white dark:bg-neo-dark-card dark:text-neo-white dark:focus:bg-neo-blue dark:focus:text-neo-black"
                 />
               </div>
-              <div className="space-y-2">
-                <label htmlFor="email" className="text-xs font-bold uppercase tracking-widest text-slate-400">Email</label>
+              <div className="space-y-3">
+                <label htmlFor="email" className="text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">Email</label>
                 <input
                   id="email"
                   name="email"
                   type="email"
                   required
                   placeholder="hello@example.com"
-                  className="w-full rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4 text-sm text-slate-900 outline-none transition-all focus:border-accent-blue/50 focus:bg-white dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-100 dark:focus:border-accent-blue/50 dark:focus:bg-slate-900"
+                  className="w-full border-4 border-neo-black bg-neo-white px-5 py-4 text-base font-bold text-neo-black outline-none focus:bg-neo-blue dark:border-neo-white dark:bg-neo-dark-card dark:text-neo-white dark:focus:bg-neo-yellow dark:focus:text-neo-black"
                 />
               </div>
             </div>
-            <div className="space-y-2">
-              <label htmlFor="message" className="text-xs font-bold uppercase tracking-widest text-slate-400">Message</label>
+            <div className="space-y-3">
+              <label htmlFor="message" className="text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">Message</label>
               <textarea
                 id="message"
                 name="message"
                 required
                 rows={5}
                 placeholder="Tell me about your project..."
-                className="w-full resize-none rounded-2xl border border-slate-100 bg-slate-50 px-5 py-4 text-sm text-slate-900 outline-none transition-all focus:border-accent-blue/50 focus:bg-white dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-100 dark:focus:border-accent-blue/50 dark:focus:bg-slate-900"
+                className="w-full resize-none border-4 border-neo-black bg-neo-white px-5 py-4 text-base font-bold text-neo-black outline-none focus:bg-neo-green dark:border-neo-white dark:bg-neo-dark-card dark:text-neo-white dark:focus:bg-neo-pink dark:focus:text-neo-black"
               />
             </div>
             <button
               type="submit"
               disabled={formState !== "idle"}
-              className="group relative flex w-full items-center justify-center overflow-hidden rounded-2xl bg-slate-900 px-8 py-5 text-sm font-bold uppercase tracking-[0.2em] text-white transition-all hover:bg-accent-blue hover:text-slate-950 disabled:opacity-50 dark:bg-accent-blue dark:text-slate-950 dark:hover:bg-sky-400"
+              className="neo-btn flex w-full items-center justify-center border-4 border-neo-black bg-neo-pink px-8 py-5 text-sm font-black uppercase tracking-[0.3em] text-neo-black shadow-neo-md disabled:opacity-50 dark:border-neo-white"
             >
-              <span className="relative z-10">
-                {formState === "submitting" ? "Sending..." : formState === "submitted" ? "Message Sent! ✨" : "Send Message"}
-              </span>
+              {formState === "submitting" ? "Sending..." : formState === "submitted" ? "Message Sent! ✨" : "Send Message"}
             </button>
           </form>
         </div>

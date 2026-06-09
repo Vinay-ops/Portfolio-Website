@@ -22,28 +22,28 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-xl dark:border-slate-800/50 dark:bg-[#0f0f14]/80">
+    <header className="sticky top-0 z-50 border-b-4 border-neo-black bg-neo-white dark:border-neo-white dark:bg-neo-dark-bg">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="#hero" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 text-sm font-bold tracking-tighter text-white dark:bg-accent-blue dark:text-slate-950">
+          <div className="flex h-12 w-12 items-center justify-center border-4 border-neo-black bg-neo-yellow text-xl font-black tracking-tighter text-neo-black shadow-neo-sm dark:border-neo-white dark:shadow-neo-dark-sm">
             VB
           </div>
           <div className="hidden flex-col text-left sm:flex">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">
               Developer
             </span>
-            <span className="text-sm font-bold text-slate-900 dark:text-slate-100">
+            <span className="text-base font-black text-neo-black dark:text-neo-white">
               Vinay Bhogal
             </span>
           </div>
         </Link>
         <nav className="flex items-center gap-4 sm:gap-10">
-          <ul className="hidden items-center gap-8 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500 transition-colors dark:text-slate-400 sm:flex">
+          <ul className="hidden items-center gap-8 text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white sm:flex">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="transition-colors hover:text-accent-blue dark:hover:text-accent-blue"
+                  className="relative transition-colors hover:text-neo-pink dark:hover:text-neo-blue"
                 >
                   {item.label}
                 </a>
@@ -53,7 +53,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/admin"
-                  className="transition-colors hover:text-accent-blue dark:hover:text-accent-blue"
+                  className="relative transition-colors hover:text-neo-pink dark:hover:text-neo-blue"
                 >
                   Admin
                 </Link>
