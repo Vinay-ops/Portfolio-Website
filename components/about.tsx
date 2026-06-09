@@ -53,14 +53,6 @@ export default function About() {
                 priority
               />
             </div>
-            <div className="mt-3 space-y-1 text-center">
-              <p className="text-sm font-black uppercase tracking-[0.2em] text-neo-black dark:text-neo-white">
-                Vinay Bhogal
-              </p>
-              <p className="text-xs font-bold text-neo-black/70 dark:text-neo-white/70">
-                {CONTACT.location}
-              </p>
-            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-3">

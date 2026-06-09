@@ -71,7 +71,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
   },
   {
     category: "Frameworks",
-    values: ["Jetpack Compose", "Flutter", "React", "Node.js", "MVVM", "Provider"]
+    values: ["Jetpack Compose", "Flutter", "Material 3", "MVVM", "Coroutines"]
   },
   {
     category: "Databases & Cloud",
@@ -79,7 +79,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
   },
   {
     category: "Developer Tools",
-    values: ["Android Studio", "VS Code", "Git", "GitHub", "Postman", "Unity"]
+    values: ["Android Studio", "VS Code", "GitHub", "Unity"]
   }
 ];
 

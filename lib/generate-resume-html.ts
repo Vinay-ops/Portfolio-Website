@@ -7,6 +7,11 @@ import {
 } from "./resume";
 import { PROJECTS } from "./projects";
 
+const truncate = (text: string, max = 110) => {
+  const t = text.trim();
+  return t.length <= max ? t : `${t.slice(0, max).trimEnd()}…`;
+};
+
 export const generateResumeHTML = () => {
   const escape = (s: string) => String(s).replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
@@ -20,10 +25,10 @@ export const generateResumeHTML = () => {
   <style>
     @page { margin: 0; size: auto; }
     html, body { margin: 0; padding: 0; background: #fff; color: #1a202c; -webkit-print-color-adjust: exact; }
-    body { font-family: 'Inter', sans-serif; line-height: 1.5; font-size: 11px; padding: 0.5in; }
+    body { font-family: 'Inter', sans-serif; line-height: 1.45; font-size: 10.5px; padding: 0.4in; }
     .container { max-width: 800px; margin: 0 auto; }
 
-    .header { text-align: left; border-bottom: 2px solid #38bdf8; padding-bottom: 20px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: flex-end; }
+    .header { text-align: left; border-bottom: 2px solid #38bdf8; padding-bottom: 14px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end; break-inside: avoid; page-break-inside: avoid; }
     .header-info h1 { font-family: 'Playfair Display', serif; font-size: 32px; margin: 0; color: #0f172a; letter-spacing: -0.02em; }
     .header-info p { font-size: 14px; color: #38bdf8; font-weight: 600; margin: 5px 0 0 0; text-transform: uppercase; letter-spacing: 0.1em; }
 
@@ -31,19 +36,20 @@ export const generateResumeHTML = () => {
     .contact-grid div { margin-bottom: 2px; }
     .contact-grid a { color: inherit; text-decoration: none; }
 
-    .section { margin-bottom: 20px; }
-    .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 4px; margin-bottom: 12px; }
+    .section { margin-bottom: 14px; break-inside: avoid; page-break-inside: avoid; }
+    .section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: #0f172a; border-bottom: 1px solid #e2e8f0; padding-bottom: 3px; margin-bottom: 8px; }
 
-    .summary { font-size: 11.5px; color: #334155; text-align: justify; line-height: 1.6; margin-bottom: 20px; }
+    .summary { font-size: 10.5px; color: #334155; text-align: justify; line-height: 1.5; margin-bottom: 14px; }
 
-    .entry { margin-bottom: 15px; break-inside: avoid; }
+    .entry { margin-bottom: 10px; break-inside: avoid; page-break-inside: avoid; }
+    .entry-compact { margin-bottom: 6px; }
     .entry-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; }
     .entry-title { font-size: 12px; font-weight: 700; color: #0f172a; }
     .entry-date { font-size: 10px; font-weight: 600; color: #64748b; text-transform: uppercase; }
     .entry-sub { display: flex; justify-content: space-between; font-size: 10.5px; font-weight: 500; color: #38bdf8; margin-bottom: 5px; }
 
-    .bullets { margin: 5px 0 0 15px; padding: 0; list-style-type: none; }
-    .bullets li { position: relative; padding-left: 15px; margin-bottom: 3px; color: #475569; }
+    .bullets { margin: 4px 0 0 15px; padding: 0; list-style-type: none; }
+    .bullets li { position: relative; padding-left: 15px; margin-bottom: 2px; color: #475569; }
     .bullets li::before { content: '•'; position: absolute; left: 0; color: #38bdf8; font-weight: bold; }
 
     .skills-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; break-inside: avoid; }
@@ -51,11 +57,12 @@ export const generateResumeHTML = () => {
     .skill-label { font-weight: 700; color: #0f172a; min-width: 90px; }
     .skill-values { color: #475569; }
 
-    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-    .project-card { border: 1px solid #f1f5f9; padding: 10px; border-radius: 8px; background: #f8fafc; break-inside: avoid; }
-    .project-name { font-size: 11px; font-weight: 700; color: #0f172a; margin-bottom: 2px; }
-    .project-tech { font-size: 9px; font-weight: 600; color: #38bdf8; text-transform: uppercase; margin-bottom: 5px; }
-    .project-desc { font-size: 10px; color: #64748b; line-height: 1.4; }
+    .projects-section { margin-bottom: 0; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; break-inside: avoid; page-break-inside: avoid; }
+    .project-card { border: 1px solid #f1f5f9; padding: 7px 8px; border-radius: 6px; background: #f8fafc; break-inside: avoid; page-break-inside: avoid; }
+    .project-name { font-size: 10px; font-weight: 700; color: #0f172a; margin-bottom: 1px; }
+    .project-tech { font-size: 8px; font-weight: 600; color: #38bdf8; text-transform: uppercase; margin-bottom: 3px; line-height: 1.3; }
+    .project-desc { font-size: 9px; color: #64748b; line-height: 1.35; }
   </style>
 </head>
 <body>
@@ -109,8 +116,8 @@ export const generateResumeHTML = () => {
 
     <section class="section">
       <div class="section-title">Education</div>
-      ${EDUCATION.map(edu => `
-        <div class="entry">
+      ${EDUCATION.map((edu, index) => `
+        <div class="${index === 0 ? "entry" : "entry entry-compact"}">
           <div class="entry-header">
             <span class="entry-title">${escape(edu.degree)}</span>
             <span class="entry-date">${escape(edu.duration)}</span>
@@ -119,23 +126,23 @@ export const generateResumeHTML = () => {
             <span>${escape(edu.institution)}</span>
             <span>${escape(edu.location)}</span>
           </div>
-          ${edu.achievements && edu.achievements.length > 0 ? `
+          ${index === 0 && edu.achievements && edu.achievements.length > 0 ? `
             <ul class="bullets">
-              ${edu.achievements.map(a => `<li>${escape(a)}</li>`).join("")}
+              ${edu.achievements.slice(0, 2).map(a => `<li>${escape(a)}</li>`).join("")}
             </ul>
           ` : ""}
         </div>
       `).join("")}
     </section>
 
-    <section class="section">
+    <section class="section projects-section">
       <div class="section-title">Selected Projects</div>
       <div class="projects-grid">
         ${PROJECTS.slice(0, 4).map(p => `
           <div class="project-card">
             <div class="project-name">${escape(p.name)}</div>
             <div class="project-tech">${escape(p.tech.join(" • "))}</div>
-            <div class="project-desc">${escape(p.description)}</div>
+            <div class="project-desc">${escape(truncate(p.description))}</div>
           </div>
         `).join("")}
       </div>
