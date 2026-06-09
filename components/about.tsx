@@ -33,21 +33,21 @@ export default function About() {
         
         <div className="grid gap-4 sm:grid-cols-2">
           <div className="space-y-4">
-            <div className="neo-card border-4 border-neo-black bg-neo-white p-6 shadow-neo-md dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-md">
+            <div className="neo-card border-4 border-neo-black bg-neo-white p-6 shadow-neo-md dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-md h-full flex flex-col justify-center">
               <p className="text-5xl font-black text-neo-pink">{PROJECTS.length}</p>
               <p className="mt-2 text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">GitHub Repos</p>
             </div>
-            <div className="neo-card border-4 border-neo-black bg-neo-white p-6 shadow-neo-md dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-md">
+            <div className="neo-card border-4 border-neo-black bg-neo-white p-6 shadow-neo-md dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-md h-full flex flex-col justify-center">
               <p className="text-5xl font-black text-neo-blue">2+</p>
               <p className="mt-2 text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">Years Experience</p>
             </div>
           </div>
-          <div className="mt-8 space-y-4 sm:mt-0">
-            <div className="neo-card border-4 border-neo-black bg-neo-green p-6 shadow-neo-md dark:border-neo-white dark:shadow-neo-dark-md">
+          <div className="space-y-4 sm:mt-0">
+            <div className="neo-card border-4 border-neo-black bg-neo-green p-6 shadow-neo-md dark:border-neo-white dark:shadow-neo-dark-md h-full flex flex-col justify-center">
               <p className="text-xs font-black uppercase tracking-[0.3em] text-neo-black">Location</p>
               <p className="mt-2 text-lg font-black text-neo-black">Thane, Maharashtra</p>
             </div>
-            <div className="neo-card border-4 border-neo-black bg-neo-yellow p-6 shadow-neo-md dark:border-neo-white dark:shadow-neo-dark-md">
+            <div className="neo-card border-4 border-neo-black bg-neo-yellow p-6 shadow-neo-md dark:border-neo-white dark:shadow-neo-dark-md h-full flex flex-col justify-center">
               <p className="text-xs font-black uppercase tracking-[0.3em] text-neo-black">Status</p>
               <p className="mt-2 text-lg font-black text-neo-black">🟢 Open to roles</p>
             </div>

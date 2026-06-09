@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import FloatingShapes from "@/components/floating-shapes";
 
 export default function Hero() {
   return (
@@ -9,8 +8,6 @@ export default function Hero() {
       id="hero"
       className="relative overflow-hidden border-b-4 border-neo-black bg-neo-white neo-grid-bg dark:border-neo-white dark:bg-neo-dark-bg"
     >
-      <FloatingShapes />
-      
       <div className="mx-auto flex max-w-6xl flex-col px-4 pb-32 pt-32 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-16 lg:flex-row lg:items-center lg:gap-20">
           <motion.div
@@ -168,9 +165,6 @@ export default function Hero() {
                     </div>
                   </div>
                 </motion.div>
-
-                <div className="absolute -top-8 -left-8 h-16 w-16 border-4 border-neo-black bg-neo-yellow floating-shape dark:border-neo-white"></div>
-                <div className="absolute -bottom-10 -right-10 h-20 w-20 rounded-full border-4 border-neo-black bg-neo-blue floating-shape-delay-1 dark:border-neo-white"></div>
               </div>
             </div>
           </motion.div>
