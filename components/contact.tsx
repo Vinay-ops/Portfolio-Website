@@ -5,20 +5,50 @@ import Section from "@/components/section";
 import SectionHeading from "@/components/section-heading";
 import { CONTACT, SOCIAL_LINKS } from "@/lib/resume";
 
-type FormState = "idle" | "submitting" | "submitted";
+type FormState = "idle" | "submitting" | "submitted" | "error";
 
 export default function Contact() {
   const [formState, setFormState] = useState<FormState>("idle");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (formState === "submitting") {
       return;
     }
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get("name") ?? "");
+    const email = String(formData.get("email") ?? "");
+    const message = String(formData.get("message") ?? "");
+
     setFormState("submitting");
-    setTimeout(() => {
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/vbhogal5@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          _subject: `Portfolio message from ${name}`,
+          _template: "table"
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send");
+      }
+
       setFormState("submitted");
-    }, 800);
+      form.reset();
+    } catch {
+      setFormState("error");
+    }
   }
 
   const contactItems = [
@@ -39,24 +69,38 @@ export default function Contact() {
       <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr]">
         <div className="space-y-8">
           <SectionHeading
-            eyebrow="Let's Connect"
+            eyebrow="Let&apos;s Connect"
             title="Open to Opportunities"
-            subtitle="Whether it's a mobile app project, internship opportunity, or a tech chat — I'd love to connect. Always open to learning and growing together."
+            subtitle="Whether it&apos;s a mobile app project, internship opportunity, or a tech chat — I&apos;d love to connect."
           />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
             {contactItems.map((item, index) => (
-              <div key={item.label} className="neo-card flex items-center gap-4 border-4 border-neo-black bg-neo-white p-5 shadow-neo-md dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-md">
-                <div className={`flex h-14 w-14 items-center justify-center border-4 border-neo-black ${colors[index % colors.length]} text-2xl shadow-neo-sm dark:border-neo-white`}>
+              <div
+                key={item.label}
+                className="neo-card flex items-center gap-4 border-4 border-neo-black bg-neo-white p-5 shadow-neo-md dark:border-neo-white dark:bg-neo-dark-card dark:shadow-neo-dark-md"
+              >
+                <div
+                  className={`flex h-14 w-14 items-center justify-center border-4 border-neo-black ${colors[index % colors.length]} text-2xl shadow-neo-sm dark:border-neo-white`}
+                >
                   {item.icon}
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">{item.label}</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">
+                    {item.label}
+                  </p>
                   {item.href ? (
-                    <a href={item.href} target="_blank" className="text-lg font-black text-neo-pink hover:text-neo-blue transition-colors dark:text-neo-blue dark:hover:text-neo-green">
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-lg font-black text-neo-pink transition-colors hover:text-neo-blue dark:text-neo-blue dark:hover:text-neo-green"
+                    >
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-lg font-black text-neo-black dark:text-neo-white">{item.value}</p>
+                    <p className="text-lg font-black text-neo-black dark:text-neo-white">
+                      {item.value}
+                    </p>
                   )}
                 </div>
               </div>
@@ -68,7 +112,12 @@ export default function Contact() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="space-y-3">
-                <label htmlFor="name" className="text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">Name</label>
+                <label
+                  htmlFor="name"
+                  className="text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white"
+                >
+                  Name
+                </label>
                 <input
                   id="name"
                   name="name"
@@ -79,7 +128,12 @@ export default function Contact() {
                 />
               </div>
               <div className="space-y-3">
-                <label htmlFor="email" className="text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">Email</label>
+                <label
+                  htmlFor="email"
+                  className="text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white"
+                >
+                  Email
+                </label>
                 <input
                   id="email"
                   name="email"
@@ -91,7 +145,12 @@ export default function Contact() {
               </div>
             </div>
             <div className="space-y-3">
-              <label htmlFor="message" className="text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white">Message</label>
+              <label
+                htmlFor="message"
+                className="text-xs font-black uppercase tracking-[0.3em] text-neo-black dark:text-neo-white"
+              >
+                Message
+              </label>
               <textarea
                 id="message"
                 name="message"
@@ -103,11 +162,27 @@ export default function Contact() {
             </div>
             <button
               type="submit"
-              disabled={formState !== "idle"}
+              disabled={formState === "submitting" || formState === "submitted"}
               className="neo-btn flex w-full items-center justify-center border-4 border-neo-black bg-neo-pink px-8 py-5 text-sm font-black uppercase tracking-[0.3em] text-neo-black shadow-neo-md disabled:opacity-50 dark:border-neo-white"
             >
-              {formState === "submitting" ? "Sending..." : formState === "submitted" ? "Message Sent! ✨" : "Send Message"}
+              {formState === "submitting"
+                ? "Sending..."
+                : formState === "submitted"
+                  ? "Message Sent!"
+                  : formState === "error"
+                    ? "Failed — Try Again"
+                    : "Send Message"}
             </button>
+            {formState === "submitted" && (
+              <p className="text-center text-sm font-bold text-neo-black dark:text-neo-white">
+                Your message was sent to {CONTACT.email}.
+              </p>
+            )}
+            {formState === "error" && (
+              <p className="text-center text-sm font-bold text-neo-pink">
+                Could not send. Email me directly at {CONTACT.email}.
+              </p>
+            )}
           </form>
         </div>
       </div>

@@ -1,13 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import Section from "@/components/section";
 import SectionHeading from "@/components/section-heading";
-import {
-  CONTACT,
-  EDUCATION,
-  PROFESSIONAL_SUMMARY,
-  SOCIAL_LINKS
-} from "@/lib/resume";
+import { CONTACT, PROFESSIONAL_SUMMARY } from "@/lib/resume";
 import { PROJECTS } from "@/lib/projects";
 
 const HIGHLIGHTS = [
@@ -44,8 +38,6 @@ const STAT_CARDS = [
 ];
 
 export default function About() {
-  const primaryEducation = EDUCATION[0];
-
   return (
     <Section id="about">
       <div className="grid gap-10 lg:grid-cols-[240px_minmax(0,1fr)] lg:items-start lg:gap-12">
@@ -108,64 +100,6 @@ export default function About() {
                 </li>
               ))}
             </ul>
-
-            {primaryEducation && (
-              <div className="border-4 border-neo-black bg-neo-blue px-5 py-4 shadow-neo-sm dark:border-neo-white dark:shadow-neo-dark-sm">
-                <p className="text-[10px] font-black uppercase tracking-[0.25em] text-neo-black">
-                  Education
-                </p>
-                <p className="mt-2 text-sm font-black text-neo-black sm:text-base">
-                  {primaryEducation.degree}
-                </p>
-                <p className="mt-1 text-sm text-neo-black/80">
-                  {primaryEducation.institution} · {primaryEducation.duration}
-                </p>
-              </div>
-            )}
-
-            <div className="flex flex-wrap gap-3 pt-1">
-              {["Android", "Flutter", "Kotlin", "Firebase", "LeetCode"].map(
-                (tag, index) => {
-                  const colors = [
-                    "bg-neo-yellow",
-                    "bg-neo-blue",
-                    "bg-neo-pink",
-                    "bg-neo-green",
-                    "bg-neo-purple"
-                  ];
-                  return (
-                    <span
-                      key={tag}
-                      className={`inline-block border-4 border-neo-black ${colors[index % colors.length]} px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-neo-black shadow-neo-sm dark:border-neo-white sm:px-4 sm:py-2 sm:text-xs`}
-                    >
-                      {tag}
-                    </span>
-                  );
-                }
-              )}
-            </div>
-
-            <div className="flex flex-wrap gap-3 pt-2">
-              {SOCIAL_LINKS.map((link, index) => {
-                const colors = [
-                  "bg-neo-yellow",
-                  "bg-neo-blue",
-                  "bg-neo-pink"
-                ];
-                return (
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`neo-btn inline-flex items-center gap-2 border-4 border-neo-black ${colors[index % colors.length]} px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-neo-black shadow-neo-sm dark:border-neo-white sm:text-xs`}
-                  >
-                    {link.label}
-                    <span className="opacity-70">{link.display}</span>
-                  </Link>
-                );
-              })}
-            </div>
           </div>
         </div>
       </div>

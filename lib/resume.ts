@@ -62,21 +62,24 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const PROFESSIONAL_SUMMARY =
-  "B.Tech Information Technology student focused on Android and Flutter development. I build production-style mobile apps with clean architecture, intuitive UX, and reliable data layers, and I am actively seeking software engineering internship opportunities.";
+  "B.Tech Information Technology student at SAKEC focused on Android and Flutter development. I build production-ready mobile applications like Pay Sahayak and Best Buy Finder with clean architecture, intuitive UX, and robust data layers. Actively seeking software engineering internship opportunities to solve complex real-world problems.";
 
 export const SKILL_GROUPS: SkillGroup[] = [
-  { category: "Languages", values: ["Java", "Kotlin", "Dart", "Python", "C#"] },
+  {
+    category: "Languages",
+    values: ["Java", "Kotlin", "Dart", "Python", "C#", "SQL"]
+  },
   {
     category: "Frameworks",
-    values: ["Jetpack Compose", "Flutter", "Material 3", "MVVM", "Coroutines"]
+    values: ["Jetpack Compose", "Flutter", "React", "Node.js", "MVVM", "Provider"]
   },
   {
     category: "Databases & Cloud",
-    values: ["Firebase", "Room", "SQLite", "MySQL", "PostgreSQL"]
+    values: ["Firebase", "Room", "PostgreSQL", "MySQL", "Unity 3D"]
   },
   {
     category: "Developer Tools",
-    values: ["Android Studio", "VS Code", "Git", "GitHub", "Postman"]
+    values: ["Android Studio", "VS Code", "Git", "GitHub", "Postman", "Unity"]
   }
 ];
 
