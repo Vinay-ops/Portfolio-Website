@@ -29,20 +29,19 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/Vinay-ops/Password_Manager"
   },
   {
+    name: "NextPath AI",
+    description:
+      "AI-powered career guidance system delivering personalized recommendations, skill gap analysis, resume review, mock interviews, and more — powered by Groq API with LLaMA 3.3 70B. Features 16 AI modules, Firebase auth, and PDF report generation.",
+    tech: ["Flutter", "Dart", "Firebase", "Groq API", "LLaMA 3.3"],
+    github: "https://github.com/Vinay-ops/NextPathAi"
+  },
+  {
     name: "Space Shooter 3D",
     description:
       "Immersive mobile 3D space shooter with dynamic enemy wave spawning. Optimized for mobile with touch controls, featuring high-quality space visuals and explosions.",
     tech: ["Unity", "C#", "3D Graphics", "Mobile Dev"],
     github: "https://github.com/Vinay-ops/Space-Shooter-3D"
   },
-  {
-    name: "NextPath AI",
-    description:
-      "AI-powered career guidance system delivering personalized recommendations, skill gap analysis, resume review, mock interviews, and more — powered by Groq API with LLaMA 3.3 70B. Features 16 AI modules, Firebase auth, and PDF report generation.",
-    tech: ["Flutter", "Dart", "Firebase", "Groq API", "LLaMA 3.3"],
-    github: "https://github.com/Vinay-ops/NextPath-AI"
-  }
-  ,
   {
     name: "LocalSathi (RailJet)",
     description:
