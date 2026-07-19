@@ -36,11 +36,11 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/Vinay-ops/Space-Shooter-3D"
   },
   {
-    name: "Red Light Green Light",
+    name: "NextPath AI",
     description:
-      "Squid Game-inspired game with AI opponents and randomized light timers. Includes third-person controls, death animations, and competitive AI players.",
-    tech: ["Unity", "C#", "AI", "ShaderLab"],
-    github: "https://github.com/Vinay-ops/Red-Light-Green-Light"
+      "AI-powered career guidance system delivering personalized recommendations, skill gap analysis, resume review, mock interviews, and more — powered by Groq API with LLaMA 3.3 70B. Features 16 AI modules, Firebase auth, and PDF report generation.",
+    tech: ["Flutter", "Dart", "Firebase", "Groq API", "LLaMA 3.3"],
+    github: "https://github.com/Vinay-ops/NextPath-AI"
   }
   ,
   {
