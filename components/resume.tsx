@@ -263,6 +263,17 @@ export default function Resume() {
                         {exp.description}
                       </p>
 
+                      {exp.offerLetter && (
+                        <a
+                          href={exp.offerLetter}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="neo-btn inline-flex w-fit items-center border-4 border-neo-black bg-neo-yellow px-4 py-2 text-xs font-black uppercase tracking-[0.15em] text-neo-black shadow-neo-sm dark:border-neo-white"
+                        >
+                          Open Offer Letter
+                        </a>
+                      )}
+
                       <ul className="space-y-3">
                         {exp.achievements.map((achievement, i) => (
                           <li

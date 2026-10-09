@@ -14,6 +14,7 @@ export type Experience = {
   duration: string;
   description: string;
   achievements: string[];
+  offerLetter?: string;
 };
 
 export type Contact = {
@@ -114,6 +115,20 @@ export const EDUCATION: Education[] = [
 ];
 
 export const EXPERIENCE: Experience[] = [
+  {
+    title: "Mobile App Developer Intern",
+    company: "Guiet Gesture",
+    location: "India",
+    duration: "July 2026 - December 2026",
+    offerLetter: "/Letter/Vinay_P1.pdf",
+    description:
+      "Contributing to the design and development of mobile application features during a six-month internship.",
+    achievements: [
+      "Developing and refining mobile app features with a focus on usability and performance",
+      "Collaborating with the team to translate requirements into reliable, maintainable solutions",
+      "Testing, debugging, and improving application quality throughout the development lifecycle"
+    ]
+  },
   {
     title: "Independent Android & Flutter Developer",
     company: "Personal Projects",
